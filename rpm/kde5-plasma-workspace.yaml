@@ -100,11 +100,11 @@ Requires:
     - qt5-qtquickcontrols
     - coreutils
     - dbus-x11
-    - socat
-    - xmessage
-    - xorg-x11-utils
-    - xorg-x11-server-utils
     # TODO: n/a
+    #- xorg-x11-utils
+    #- xorg-x11-server-utils
+    #- xmessage
+    #- socat
     #- sddm
     - systemd
 RequiresPost:

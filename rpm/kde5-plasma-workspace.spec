@@ -22,10 +22,6 @@ Requires:   kf5-kdoctools
 Requires:   qt5-qtquickcontrols
 Requires:   coreutils
 Requires:   dbus-x11
-Requires:   socat
-Requires:   xmessage
-Requires:   xorg-x11-utils
-Requires:   xorg-x11-server-utils
 Requires:   systemd
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
