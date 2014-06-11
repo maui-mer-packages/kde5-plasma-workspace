@@ -37,7 +37,7 @@ BuildRequires:  pkgconfig(Qt5Gui)
 BuildRequires:  pkgconfig(Qt5Widgets)
 BuildRequires:  pkgconfig(Qt5Concurrent)
 BuildRequires:  pkgconfig(Qt5Test)
-BuildRequires:  pkgconfig(Qt5QtWebKit)
+BuildRequires:  pkgconfig(Qt5WebKit)
 BuildRequires:  pkgconfig(Qt5Declarative)
 BuildRequires:  pkgconfig(Qt5Script)
 BuildRequires:  pkgconfig(Qt5X11Extras)
@@ -48,7 +48,7 @@ BuildRequires:  zlib-devel
 BuildRequires:  dbusmenu-qt5-devel
 BuildRequires:  qimageblitz-devel
 BuildRequires:  libGL-devel
-BuildRequires:  mesa-libGLES-devel
+BuildRequires:  libGLES-devel
 BuildRequires:  libX11-devel
 BuildRequires:  libXau-devel
 BuildRequires:  libXdmcp-devel
@@ -68,10 +68,6 @@ BuildRequires:  boost-devel
 BuildRequires:  libusb-devel
 BuildRequires:  libbsd-devel
 BuildRequires:  pam-devel
-BuildRequires:  lm_sensors-devel
-BuildRequires:  pciutils-devel
-BuildRequires:  libraw1394-devel
-BuildRequires:  gpsd-devel
 BuildRequires:  phonon-qt5-devel
 BuildRequires:  kf5-umbrella
 BuildRequires:  kf5-plasma-devel
@@ -89,8 +85,6 @@ BuildRequires:  kf5-kdeclarative-devel
 BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-kdewebkit-devel
 BuildRequires:  kf5-kdelibs4support-devel
-BuildRequires:  kf5-ksysguard-devel
-BuildRequires:  kf5-kscreen-devel
 BuildRequires:  kde5-kwin-devel
 BuildRequires:  desktop-file-utils
 

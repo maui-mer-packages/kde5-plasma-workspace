@@ -29,7 +29,7 @@ PkgBR:
     - dbusmenu-qt5-devel
     - qimageblitz-devel
     - libGL-devel
-    - mesa-libGLES-devel
+    - libGLES-devel
     - libX11-devel
     - libXau-devel
     - libXdmcp-devel
@@ -49,10 +49,11 @@ PkgBR:
     - libusb-devel
     - libbsd-devel
     - pam-devel
-    - lm_sensors-devel
-    - pciutils-devel
-    - libraw1394-devel
-    - gpsd-devel
+    # TODO: n/a
+    #- lm_sensors-devel
+    #- pciutils-devel
+    #- libraw1394-devel
+    #- gpsd-devel
     - phonon-qt5-devel
     - kf5-umbrella
     - kf5-plasma-devel
@@ -70,8 +71,9 @@ PkgBR:
     - kf5-plasma-devel
     - kf5-kdewebkit-devel
     - kf5-kdelibs4support-devel
-    - kf5-ksysguard-devel
-    - kf5-kscreen-devel
+    # TODO: n/a
+    #- kf5-ksysguard-devel
+    #- kf5-kscreen-devel
     - kde5-kwin-devel
 PkgConfigBR:
     - Qt5Core
@@ -82,7 +84,7 @@ PkgConfigBR:
     - Qt5Widgets
     - Qt5Concurrent
     - Qt5Test
-    - Qt5QtWebKit
+    - Qt5WebKit
     - Qt5Declarative
     - Qt5Script
     - Qt5X11Extras
@@ -98,7 +100,7 @@ Requires:
     - xmessage
     - xorg-x11-utils
     - xorg-x11-server-utils
-    # not packaged yet
+    # TODO: n/a
     #- sddm
     - systemd
 RequiresPost:
