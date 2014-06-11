@@ -72,8 +72,8 @@ PkgBR:
     - kf5-plasma-devel
     - kf5-kdewebkit-devel
     - kf5-kdelibs4support-devel
+    - kde5-libksysguard-devel
     # TODO: n/a
-    #- kf5-ksysguard-devel
     #- kf5-kscreen-devel
     - kde5-kwin-devel
 PkgConfigBR:
