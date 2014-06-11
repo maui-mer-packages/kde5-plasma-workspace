@@ -26,10 +26,10 @@ PkgBR:
     - extra-cmake-modules
     - qt5-tools
     - zlib-devel
-    - dbusmenu-qt5-devel
-    - qimageblitz-devel
+    # TODO: n/a
+    #- dbusmenu-qt5-devel
+    #- qimageblitz-devel
     - libGL-devel
-    - libGLES-devel
     - libX11-devel
     - libXau-devel
     - libXdmcp-devel
@@ -47,7 +47,8 @@ PkgBR:
     - python-devel
     - boost-devel
     - libusb-devel
-    - libbsd-devel
+    # TODO: n/a
+    #- libbsd-devel
     - pam-devel
     # TODO: n/a
     #- lm_sensors-devel

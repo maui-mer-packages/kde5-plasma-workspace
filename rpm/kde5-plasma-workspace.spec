@@ -45,10 +45,7 @@ BuildRequires:  kde5-rpm-macros
 BuildRequires:  extra-cmake-modules
 BuildRequires:  qt5-tools
 BuildRequires:  zlib-devel
-BuildRequires:  dbusmenu-qt5-devel
-BuildRequires:  qimageblitz-devel
 BuildRequires:  libGL-devel
-BuildRequires:  libGLES-devel
 BuildRequires:  libX11-devel
 BuildRequires:  libXau-devel
 BuildRequires:  libXdmcp-devel
@@ -66,7 +63,6 @@ BuildRequires:  fontconfig-devel
 BuildRequires:  python-devel
 BuildRequires:  boost-devel
 BuildRequires:  libusb-devel
-BuildRequires:  libbsd-devel
 BuildRequires:  pam-devel
 BuildRequires:  phonon-qt5-devel
 BuildRequires:  kf5-umbrella
