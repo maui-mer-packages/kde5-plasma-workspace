@@ -89,6 +89,7 @@ PkgConfigBR:
     - Qt5Declarative
     - Qt5Script
     - Qt5X11Extras
+    - Qt5Quick
 Requires:
     - kde5-filesystem
     - kf5-kinit
