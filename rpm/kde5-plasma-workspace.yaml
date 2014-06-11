@@ -90,6 +90,8 @@ PkgConfigBR:
     - Qt5Script
     - Qt5X11Extras
     - Qt5Quick
+    - Qt5WebKitWidgets
+    - Qt5PrintSupport
 Requires:
     - kde5-filesystem
     - kf5-kinit
