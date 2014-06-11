@@ -1,0 +1,172 @@
+Name         : kde5-plasma-workspace
+Version      : 4.97.0
+Release      : 1
+Group        : System/Base
+License      : GPLv2+
+Summary      : KDE Frameworks 5 Tier 1 solution for spell checking
+Description  : |
+  KDE Frameworks 5 Tier 1 addon for advanced thread management.
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kde5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - zlib-devel
+    - dbusmenu-qt5-devel
+    - qimageblitz-devel
+    - libGL-devel
+    - mesa-libGLES-devel
+    - libX11-devel
+    - libXau-devel
+    - libXdmcp-devel
+    - libxkbfile-devel
+    - libXcomposite-devel
+    - libXdamage-devel
+    - libXrender-devel
+    - libXfixes-devel
+    - libXrandr-devel
+    - libXcursor-devel
+    - libxcb-devel
+    - xcb-util
+    - glib2-devel
+    - fontconfig-devel
+    - python-devel
+    - boost-devel
+    - libusb-devel
+    - libbsd-devel
+    - pam-devel
+    - lm_sensors-devel
+    - pciutils-devel
+    - libraw1394-devel
+    - gpsd-devel
+    - phonon-qt5-devel
+    - kf5-umbrella
+    - kf5-plasma-devel
+    - kf5-kdoctools-devel
+    - kf5-krunner-devel
+    - kf5-kjsembed-devel
+    - kf5-knotifyconfig-devel
+    - kf5-kdesu-devel
+    - kf5-knewstuff-devel
+    - kf5-kwallet-devel
+    - kf5-kcmutils-devel
+    - kf5-kidletime-devel
+    - kf5-threadweaver-devel
+    - kf5-kdeclarative-devel
+    - kf5-plasma-devel
+    - kf5-kdewebkit-devel
+    - kf5-kdelibs4support-devel
+    - kf5-ksysguard-devel
+    - kf5-kscreen-devel
+    - kde5-kwin-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5QtWebKit
+    - Qt5Declarative
+    - Qt5Script
+    - Qt5X11Extras
+Requires:
+    - kde5-filesystem
+    - kf5-kinit
+    - kf5-kded
+    - kf5-kdoctools
+    - qt5-qtquickcontrols
+    - coreutils
+    - dbus-x11
+    - socat
+    - xmessage
+    - xorg-x11-utils
+    - xorg-x11-server-utils
+    # not packaged yet
+    #- sddm
+    - systemd
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%{_kde5_bindir}/*"
+    - "%{_kde5_libdir}/*.so.*"
+    - "%{_kde5_libdir}/libkdeinit5_*.so"
+    - "%{_kde5_plugindir}/plasma/dataengine/*.so"
+    - "%{_kde5_plugindir}/plasma/geolocationprovider/*.so"
+    - "%{_kde5_plugindir}/plasma/packagestructure/*.so"
+    - "%{_kde5_plugindir}/*.so"
+    - "%{_kde5_plugindir}/phonon_platform/kde.so"
+    - "%{_kde5_libdir}/qml/org/kde/*"
+    - "%{_kde5_libexecdir}/*"
+    - "%{_kde5_datadir}/ksmserver"
+    - "%{_kde5_datadir}/ksplash"
+    - "%{_kde5_datadir}/plasma/plasmoids"
+    - "%{_kde5_datadir}/plasma/services"
+    - "%{_kde5_datadir}/plasma/shareprovider"
+    - "%{_kde5_datadir}/plasma/wallpapers"
+    - "%{_kde5_datadir}/plasma/look-and-feel"
+    - "%{_kde5_datadir}/solid"
+    - "%{_kde5_datadir}/kstyle"
+    - "%{_kde5_datadir}/drkonqi/debuggers/external/*"
+    - "%{_kde5_datadir}/drkonqi/debuggers/internal/*"
+    - "%{_kde5_datadir}/drkonqi/mappings"
+    - "%{_kde5_datadir}/drkonqi/pics/*.png"
+    - "%{_kde5_sysconfdir}/xdg/*.knsrc"
+    - "%{_kde5_sysconfdir}/xdg/autostart/*.desktop"
+    - "%{_datadir}/desktop-directories/*.directory"
+    - "%{_datadir}/dbus-1/services/*.service"
+    - "%{_datadir}/kservices5/*.desktop"
+    - "%{_datadir}/kservices5/*.protocol"
+    - "%{_datadir}/kservices5/kded/*.desktop"
+    - "%{_datadir}/kservicetypes5/*.desktop"
+    - "%{_datadir}/knotifications5/*.notifyrc"
+    - "%{_datadir}/applications/*.desktop"
+    - "%{_datadir}/config.kcfg"
+
+# NOTE: various integration bits are not being created manually as their need on Mer is unclear (pam config moving around, profile.d with overriden paths paths ...)
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Files:
+          - "%{_kde5_libdir}/libweather_ion.so"
+          - "%{_kde5_libdir}/libtaskmanager.so"
+          - "%{_kde5_libdir}/libkworkspace.so"
+          - "%{_kde5_libdir}/libplasma-geolocation-interface.so"
+          - "%{_kde5_includedir}/*"
+          - "%{_libdir}/cmake/KRunnerAppDBusInterface"
+          - "%{_libdir}/cmake/KSMServerDBusInterface"
+          - "%{_libdir}/cmake/LibKWorkspace"
+          - "%{_libdir}/cmake/LibTaskManager"
+          - "%{_libdir}/cmake/ScreenSaverDBusInterface"
+          - "%{_datadir}/dbus-1/interfaces/*.xml"
+    - Name: doc
+      Group: Documentation
+      Summary: Documentation and user manuals for %{name}
+      Description: |
+        Documentation and user manuals for %{name}
+      Files:
+          - "%{_datadir}/doc/HTML/en/*"
