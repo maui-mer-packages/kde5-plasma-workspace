@@ -41,7 +41,7 @@ PkgBR:
     - libXrandr-devel
     - libXcursor-devel
     - libxcb-devel
-    - xcb-util
+    - xcb-util-devel
     - glib2-devel
     - fontconfig-devel
     - python-devel

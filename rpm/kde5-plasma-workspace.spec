@@ -60,7 +60,7 @@ BuildRequires:  libXfixes-devel
 BuildRequires:  libXrandr-devel
 BuildRequires:  libXcursor-devel
 BuildRequires:  libxcb-devel
-BuildRequires:  xcb-util
+BuildRequires:  xcb-util-devel
 BuildRequires:  glib2-devel
 BuildRequires:  fontconfig-devel
 BuildRequires:  python-devel
