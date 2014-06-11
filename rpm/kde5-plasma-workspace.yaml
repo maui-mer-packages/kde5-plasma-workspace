@@ -55,6 +55,7 @@ PkgBR:
     #- pciutils-devel
     #- libraw1394-devel
     #- gpsd-devel
+    - libSM-devel
     - phonon-qt5-devel
     - kf5-umbrella
     - kf5-plasma-devel

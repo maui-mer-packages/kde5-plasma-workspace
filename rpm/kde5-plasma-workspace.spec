@@ -67,6 +67,7 @@ BuildRequires:  python-devel
 BuildRequires:  boost-devel
 BuildRequires:  libusb-devel
 BuildRequires:  pam-devel
+BuildRequires:  libSM-devel
 BuildRequires:  phonon-qt5-devel
 BuildRequires:  kf5-umbrella
 BuildRequires:  kf5-plasma-devel
