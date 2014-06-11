@@ -159,11 +159,7 @@ desktop-file-install --delete-original       \
 %{_kde5_bindir}/*
 %{_kde5_libdir}/*.so.*
 %{_kde5_libdir}/libkdeinit5_*.so
-%{_kde5_plugindir}/plasma/dataengine/*.so
-%{_kde5_plugindir}/plasma/geolocationprovider/*.so
-%{_kde5_plugindir}/plasma/packagestructure/*.so
-%{_kde5_plugindir}/*.so
-%{_kde5_plugindir}/phonon_platform/kde.so
+%{_kde5_plugindir}/*
 %{_kde5_libdir}/qml/org/kde/*
 %{_kde5_libexecdir}/*
 %{_kde5_datadir}/ksmserver
