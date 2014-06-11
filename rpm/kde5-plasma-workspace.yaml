@@ -73,8 +73,7 @@ PkgBR:
     - kf5-kdewebkit-devel
     - kf5-kdelibs4support-devel
     - kde5-libksysguard-devel
-    # TODO: n/a
-    #- kf5-kscreen-devel
+    - libkscreen-devel
     - kde5-kwin-devel
 PkgConfigBR:
     - Qt5Core

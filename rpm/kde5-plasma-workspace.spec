@@ -85,6 +85,7 @@ BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-kdewebkit-devel
 BuildRequires:  kf5-kdelibs4support-devel
 BuildRequires:  kde5-libksysguard-devel
+BuildRequires:  libkscreen-devel
 BuildRequires:  kde5-kwin-devel
 BuildRequires:  desktop-file-utils
 
