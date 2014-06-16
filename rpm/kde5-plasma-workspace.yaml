@@ -11,6 +11,7 @@ SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
+    - plasma5-desktop.desktop
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package
@@ -142,6 +143,7 @@ Files:
     - "%{_datadir}/kservicetypes5/*.desktop"
     - "%{_datadir}/knotifications5/*.notifyrc"
     - "%{_datadir}/applications/*.desktop"
+    - "%{_datadir}/xsessions/plasma5-desktop.desktop"
     - "%{_datadir}/config.kcfg"
 
 # NOTE: various integration bits are not being created manually as their need on Mer is unclear (pam config moving around, profile.d with overriden paths paths ...)
