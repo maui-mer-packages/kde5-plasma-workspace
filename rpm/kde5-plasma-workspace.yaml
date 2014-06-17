@@ -53,7 +53,7 @@ PkgBR:
     - pam-devel
     # TODO: n/a
     #- lm_sensors-devel
-    #- pciutils-devel
+    - pciutils-devel
     #- libraw1394-devel
     #- gpsd-devel
     - libSM-devel
@@ -101,12 +101,12 @@ Requires:
     - qt5-qtquickcontrols
     - coreutils
     - dbus-x11
+    - xorg-x11-utils
+    - xorg-x11-server-utils
     # TODO: n/a
-    #- xorg-x11-utils
-    #- xorg-x11-server-utils
     #- xmessage
     #- socat
-    #- sddm
+    - sddm
     - systemd
 RequiresPost:
     - /sbin/ldconfig

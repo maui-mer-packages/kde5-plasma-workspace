@@ -25,6 +25,9 @@ Requires:   kf5-kdoctools
 Requires:   qt5-qtquickcontrols
 Requires:   coreutils
 Requires:   dbus-x11
+Requires:   xorg-x11-utils
+Requires:   xorg-x11-server-utils
+Requires:   sddm
 Requires:   systemd
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -66,6 +69,7 @@ BuildRequires:  python-devel
 BuildRequires:  boost-devel
 BuildRequires:  libusb-devel
 BuildRequires:  pam-devel
+BuildRequires:  pciutils-devel
 BuildRequires:  libSM-devel
 BuildRequires:  phonon-qt5-devel
 BuildRequires:  kf5-umbrella
