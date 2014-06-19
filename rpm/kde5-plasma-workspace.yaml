@@ -3,9 +3,9 @@ Version      : 4.97.0
 Release      : 1
 Group        : System/Base
 License      : GPLv2+
-Summary      : KDE Frameworks 5 Tier 1 solution for spell checking
+Summary      : Plasma 5 workspace applications and applets
 Description  : |
-  KDE Frameworks 5 Tier 1 addon for advanced thread management.
+  Plasma 5 libraries and runtime components.
 URL          : http://www.kde.org
 SetupOptions : -q -n %{name}-%{version}/upstream
 

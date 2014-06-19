@@ -8,7 +8,7 @@ Name:       kde5-plasma-workspace
 # >> macros
 # << macros
 
-Summary:    KDE Frameworks 5 Tier 1 solution for spell checking
+Summary:    Plasma 5 workspace applications and applets
 Version:    4.97.0
 Release:    1
 Group:      System/Base
@@ -124,7 +124,7 @@ BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
 
 %description
-KDE Frameworks 5 Tier 1 addon for advanced thread management.
+Plasma 5 libraries and runtime components.
 
 
 %package devel
