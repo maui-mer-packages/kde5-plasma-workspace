@@ -15,7 +15,6 @@ Group:      System/Base
 License:    GPLv2+
 URL:        http://www.kde.org
 Source0:    %{name}-%{version}.tar.xz
-Source1:    plasma5-desktop.desktop
 Source100:  kde5-plasma-workspace.yaml
 Source101:  kde5-plasma-workspace-rpmlintrc
 Requires:   kde5-filesystem
@@ -170,7 +169,36 @@ rm -rf %{buildroot}
 
 # >> install post
 mkdir -p %{buildroot}%{_datadir}/xsessions
-install -p %SOURCE1 %{buildroot}%{_datadir}/xsessions/plasma5-desktop.desktop
+cat > %{buildroot}%{_datadir}/xsessions/plasma5-desktop.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Type=XSession
+Exec=%{_kde5_bindir}/startkde
+TryExec=%{_kde5_bindir}/startkde
+Name=Plasma 5
+Comment=The next generation desktop made by the KDE Community
+EOF
+
+mkdir -p %{buildroot}/%{_kde5_sysconfdir}/profile.d
+cat > %{buildroot}/%{_kde5_sysconfdir}/profile.d/plasma5.sh <<EOF
+export XDG_DATA_DIRS="%{_kf5_datadir}/kf5:%{_kde5_datadir}/kde5:%{_datadir}"
+export QT_PLUGIN_PATH="%{_kde5_plugindir}:%{_kf5_plugindir}:%{_kf5_qtplugindir}"
+export QML2_IMPORT_PATH="%{_kf5_qmldir}:%{_kde5_qmldir}"
+export LD_LIBRARY_PATH="%{_kde5_libdir}/kde5:%{_libdir}"
+export XDG_ICON_DIRS="%{_datadir}/icons"
+export LIBEXEC_PATH="%{_kde5_libexecdir}:%{_kf5_libexecdir}:%{_libexecdir}"
+EOF
+
+mkdir -p %{buildroot}/%{_kde5_plugindir}/phonon_platform
+mv %{buildroot}/%{_kde5_plugindir}/{plugins,}/phonon_platform/kde.so
+chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
+
+# These two are ignoring CMAKECONFIG_INSTALL_PREFIX
+mv %{buildroot}/%{_kde5_libdir}/cmake/LibKWorkspace %{buildroot}/%{_libdir}/cmake
+mv %{buildroot}/%{_kde5_libdir}/cmake/LibTaskManager %{buildroot}/%{_libdir}/cmake
+
+# Fix startkde being stupid and broken
+sed -i 's/lib\(\|64\)\/kde5\/libexec/libexec/' %{buildroot}/%{_kde5_bindir}/startkde
 # << install post
 
 desktop-file-install --delete-original       \
@@ -179,6 +207,7 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
+%{_kde5_sysconfdir}/profile.d/plasma5.sh
 %{_kde5_bindir}/*
 %{_kde5_libdir}/*.so.*
 %{_kde5_libdir}/libkdeinit5_*.so

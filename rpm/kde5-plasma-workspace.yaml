@@ -11,7 +11,6 @@ SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
-    - plasma5-desktop.desktop
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package
@@ -145,6 +144,7 @@ RequiresPostUn:
     - /sbin/ldconfig
 
 Files:
+    - "%{_kde5_sysconfdir}/profile.d/plasma5.sh"
     - "%{_kde5_bindir}/*"
     - "%{_kde5_libdir}/*.so.*"
     - "%{_kde5_libdir}/libkdeinit5_*.so"
