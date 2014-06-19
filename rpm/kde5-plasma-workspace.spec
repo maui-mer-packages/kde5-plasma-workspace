@@ -27,6 +27,7 @@ Requires:   coreutils
 Requires:   dbus-x11
 Requires:   xorg-x11-utils
 Requires:   xorg-x11-server-utils
+Requires:   socat
 Requires:   sddm
 Requires:   systemd
 Requires(post): /sbin/ldconfig
