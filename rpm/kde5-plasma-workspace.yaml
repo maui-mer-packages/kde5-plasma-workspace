@@ -26,37 +26,18 @@ PkgBR:
     - kde5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - zlib-devel
     # TODO: n/a
     #- dbusmenu-qt5-devel
     #- qimageblitz-devel
     - libGL-devel
-    - libX11-devel
-    - libXau-devel
-    - libXdmcp-devel
-    - libxkbfile-devel
-    - libXcomposite-devel
-    - libXdamage-devel
-    - libXrender-devel
-    - libXfixes-devel
-    - libXrandr-devel
-    - libXcursor-devel
-    - libxcb-devel
-    - xcb-util-devel
-    - glib2-devel
-    - fontconfig-devel
-    - python-devel
     - boost-devel
-    - libusb-devel
     # TODO: n/a
     #- libbsd-devel
     - pam-devel
     # TODO: n/a
     #- lm_sensors-devel
-    - pciutils-devel
     #- libraw1394-devel
     #- gpsd-devel
-    - libSM-devel
     - phonon-qt5-devel
     - kf5-umbrella
     - kf5-plasma-devel
@@ -93,6 +74,56 @@ PkgConfigBR:
     - Qt5Quick
     - Qt5WebKitWidgets
     - Qt5PrintSupport
+    - zlib
+    - glib-2.0
+    - fontconfig
+    - python2
+    - libusb
+    - libpci
+    - x11-xcb
+    - xau
+    - xdmcp
+    - xkbfile
+    - xcomposite
+    - xdamage
+    - xrender
+    - xfixes
+    - xrandr
+    - xcursor
+    - sm
+    # libxcb-devel:
+    - xcb
+    - xcb-composite
+    - xcb-damage
+    - xcb-dpms
+    - xcb-dri2
+    - xcb-glx
+    - xcb-randr
+    - xcb-record
+    - xcb-render
+    - xcb-res
+    - xcb-screensaver
+    - xcb-shape
+    - xcb-shm
+    - xcb-sync
+    - xcb-xevie
+    - xcb-xf86dri
+    - xcb-xfixes
+    - xcb-xinerama
+    - xcb-xprint
+    - xcb-xtest
+    - xcb-xv
+    # xcb-utils-devel:
+    - xcb-xvmc
+    - xcb-atom
+    - xcb-aux
+    - xcb-event
+    - xcb-icccm
+    - xcb-image
+    - xcb-keysyms
+    - xcb-property
+    - xcb-renderutil
+    - xcb-reply
 Requires:
     - kde5-filesystem
     - kf5-kinit
