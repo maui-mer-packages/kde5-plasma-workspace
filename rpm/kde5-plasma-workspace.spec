@@ -120,6 +120,7 @@ BuildRequires:  kf5-kdelibs4support-devel
 BuildRequires:  kde5-libksysguard-devel
 BuildRequires:  libkscreen-devel
 BuildRequires:  kde5-kwin-devel
+BuildRequires:  chrpath
 BuildRequires:  desktop-file-utils
 
 %description

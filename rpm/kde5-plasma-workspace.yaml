@@ -57,6 +57,7 @@ PkgBR:
     - kde5-libksysguard-devel
     - libkscreen-devel
     - kde5-kwin-devel
+    - chrpath
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
