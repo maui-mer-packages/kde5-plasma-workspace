@@ -132,10 +132,9 @@ Requires:
     - qt5-qtquickcontrols
     - coreutils
     - dbus-x11
+    - xorg-x11-apps
     - xorg-x11-utils
     - xorg-x11-server-utils
-    # TODO: n/a
-    #- xmessage
     - socat
     - sddm
     - systemd

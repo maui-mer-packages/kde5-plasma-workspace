@@ -24,6 +24,7 @@ Requires:   kf5-kdoctools
 Requires:   qt5-qtquickcontrols
 Requires:   coreutils
 Requires:   dbus-x11
+Requires:   xorg-x11-apps
 Requires:   xorg-x11-utils
 Requires:   xorg-x11-server-utils
 Requires:   socat
