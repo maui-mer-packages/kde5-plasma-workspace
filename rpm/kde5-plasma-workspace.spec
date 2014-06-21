@@ -142,6 +142,7 @@ that use %{name}.
 %package doc
 Summary:    Documentation and user manuals for %{name}
 Group:      Documentation
+BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 
 %description doc

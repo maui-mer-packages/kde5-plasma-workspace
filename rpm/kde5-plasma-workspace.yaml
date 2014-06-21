@@ -201,6 +201,7 @@ SubPackages:
           - "%{_datadir}/dbus-1/interfaces/*.xml"
     - Name: doc
       Group: Documentation
+      BuildArch: noarch
       Summary: Documentation and user manuals for %{name}
       Description: |
         Documentation and user manuals for %{name}
