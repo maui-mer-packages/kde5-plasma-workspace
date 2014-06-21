@@ -192,9 +192,6 @@ EOF
 
 chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
-# Fix startkde being stupid and broken
-sed -i 's/lib\(\|64\)\/kde5\/libexec/libexec/' %{buildroot}/%{_kde5_bindir}/startkde
-
 mv -f %{buildroot}%{_datadir}/apps/sddm %{buildroot}%{_datadir}
 rm -rf %{buildroot}%{_datadir}/apps
 # << install post
