@@ -206,3 +206,11 @@ SubPackages:
         Documentation and user manuals for %{name}
       Files:
           - "%{_datadir}/doc/HTML/en/*"
+    - Name: sddm-theme-breeze
+      AsWholeName: True
+      Group: Applications/System
+      Summary: SDDM "Breeze" theme
+      Description: |
+        This package contains the "Breeze" theme for SDDM.
+      Files:
+          - "%{_datadir}/sddm/themes/breeze"

@@ -148,6 +148,15 @@ Requires:   %{name} = %{version}-%{release}
 Documentation and user manuals for %{name}
 
 
+%package -n sddm-theme-breeze
+Summary:    SDDM "Breeze" theme
+Group:      Applications/System
+Requires:   %{name} = %{version}-%{release}
+
+%description -n sddm-theme-breeze
+This package contains the "Breeze" theme for SDDM.
+
+
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
@@ -185,6 +194,9 @@ chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
 # Fix startkde being stupid and broken
 sed -i 's/lib\(\|64\)\/kde5\/libexec/libexec/' %{buildroot}/%{_kde5_bindir}/startkde
+
+mv -f %{buildroot}%{_datadir}/apps/sddm %{buildroot}%{_datadir}
+rm -rf %{buildroot}%{_datadir}/apps
 # << install post
 
 desktop-file-install --delete-original       \
@@ -249,3 +261,9 @@ desktop-file-install --delete-original       \
 %{_datadir}/doc/HTML/en/*
 # >> files doc
 # << files doc
+
+%files -n sddm-theme-breeze
+%defattr(-,root,root,-)
+%{_datadir}/sddm/themes/breeze
+# >> files sddm-theme-breeze
+# << files sddm-theme-breeze
