@@ -194,10 +194,6 @@ EOF
 
 chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
-# These two are ignoring CMAKECONFIG_INSTALL_PREFIX
-mv %{buildroot}/%{_kde5_libdir}/cmake/LibKWorkspace %{buildroot}/%{_libdir}/cmake
-mv %{buildroot}/%{_kde5_libdir}/cmake/LibTaskManager %{buildroot}/%{_libdir}/cmake
-
 # Fix startkde being stupid and broken
 sed -i 's/lib\(\|64\)\/kde5\/libexec/libexec/' %{buildroot}/%{_kde5_bindir}/startkde
 # << install post
