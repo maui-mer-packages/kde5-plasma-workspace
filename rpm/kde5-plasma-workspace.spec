@@ -171,17 +171,6 @@ rm -rf %{buildroot}
 # << install pre
 
 # >> install post
-mkdir -p %{buildroot}%{_datadir}/xsessions
-cat > %{buildroot}%{_datadir}/xsessions/plasma5-desktop.desktop <<EOF
-[Desktop Entry]
-Encoding=UTF-8
-Type=XSession
-Exec=%{_kde5_bindir}/startkde
-TryExec=%{_kde5_bindir}/startkde
-Name=Plasma 5
-Comment=The next generation desktop made by the KDE Community
-EOF
-
 mkdir -p %{buildroot}/%{_kde5_sysconfdir}/profile.d
 cat > %{buildroot}/%{_kde5_sysconfdir}/profile.d/plasma5.sh <<EOF
 export XDG_DATA_DIRS="%{_kf5_datadir}/kf5:%{_kde5_datadir}/kde5:%{_datadir}"
@@ -234,7 +223,7 @@ desktop-file-install --delete-original       \
 %{_datadir}/kservicetypes5/*.desktop
 %{_datadir}/knotifications5/*.notifyrc
 %{_datadir}/applications/*.desktop
-%{_datadir}/xsessions/plasma5-desktop.desktop
+%{_datadir}/xsessions/plasma.desktop
 %{_datadir}/config.kcfg
 # >> files
 # << files
