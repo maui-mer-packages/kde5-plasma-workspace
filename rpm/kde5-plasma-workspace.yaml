@@ -208,6 +208,7 @@ SubPackages:
           - "%{_datadir}/doc/HTML/en/*"
     - Name: sddm-theme-breeze
       AsWholeName: True
+      BuildArch: noarch
       Group: Applications/System
       Summary: SDDM "Breeze" theme
       Description: |

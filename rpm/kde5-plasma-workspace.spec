@@ -151,6 +151,7 @@ Documentation and user manuals for %{name}
 %package -n sddm-theme-breeze
 Summary:    SDDM "Breeze" theme
 Group:      Applications/System
+BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 
 %description -n sddm-theme-breeze
