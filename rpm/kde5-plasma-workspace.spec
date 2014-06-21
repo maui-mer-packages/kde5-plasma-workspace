@@ -192,8 +192,6 @@ export XDG_ICON_DIRS="%{_datadir}/icons"
 export LIBEXEC_PATH="%{_kde5_libexecdir}:%{_kf5_libexecdir}:%{_libexecdir}"
 EOF
 
-mkdir -p %{buildroot}/%{_kde5_plugindir}/phonon_platform
-mv %{buildroot}/%{_kde5_plugindir}/{plugins,}/phonon_platform/kde.so
 chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
 # These two are ignoring CMAKECONFIG_INSTALL_PREFIX
