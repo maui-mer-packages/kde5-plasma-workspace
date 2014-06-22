@@ -187,12 +187,17 @@ rm -rf %{buildroot}
 # >> install post
 mkdir -p %{buildroot}/%{_kde5_sysconfdir}/profile.d
 cat > %{buildroot}/%{_kde5_sysconfdir}/profile.d/plasma5.sh <<EOF
-export XDG_DATA_DIRS="%{_kf5_datadir}/kf5:%{_kde5_datadir}/kde5:%{_datadir}"
 export QT_PLUGIN_PATH="%{_kde5_plugindir}:%{_kf5_plugindir}:%{_kf5_qtplugindir}"
-export QML2_IMPORT_PATH="%{_kf5_qmldir}"
+export QML2_IMPORT_PATH="%{_kf5_qmldir}:%{_libdir}/qml"
 export LD_LIBRARY_PATH="%{_kde5_libdir}/kde5:%{_libdir}"
-export XDG_ICON_DIRS="%{_datadir}/icons"
 export LIBEXEC_PATH="%{_kf5_libexecdir}:%{_kde5_libexecdir}"
+
+# XDG
+# Refer to http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
+export XDG_ICON_DIRS="%{_datadir}/icons"
+export XDG_DATA_DIRS="%{_kf5_datadir}/kf5:%{_kde5_datadir}/kde5:%{_datadir}"
+export XDG_CONFIG_HOME="~/.config"
+export XDG_CACHE_HOME="~/.cache"
 EOF
 
 chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
