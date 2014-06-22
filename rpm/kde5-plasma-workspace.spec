@@ -28,7 +28,6 @@ Requires:   xorg-x11-apps
 Requires:   xorg-x11-utils
 Requires:   xorg-x11-server-utils
 Requires:   socat
-Requires:   sddm
 Requires:   systemd
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -154,6 +153,7 @@ Summary:    SDDM "Breeze" theme
 Group:      Applications/System
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
+Requires:   sddm
 
 %description -n sddm-theme-breeze
 This package contains the "Breeze" theme for SDDM.
