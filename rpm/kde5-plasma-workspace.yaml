@@ -22,6 +22,7 @@ Configure    : none
 Builder      : none
 
 PkgBR:
+    - kf5-rpm-macros
     - kde5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
