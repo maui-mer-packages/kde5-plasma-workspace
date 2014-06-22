@@ -132,6 +132,8 @@ Requires:
     - kf5-kded
     - kf5-kdoctools
     - qt5-qtquickcontrols
+    - qt5-qttools-paths
+    - qt5-qttools-qdbus
     - coreutils
     - dbus-x11
     - xorg-x11-apps

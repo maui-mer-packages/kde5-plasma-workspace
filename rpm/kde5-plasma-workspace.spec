@@ -22,6 +22,8 @@ Requires:   kf5-kinit
 Requires:   kf5-kded
 Requires:   kf5-kdoctools
 Requires:   qt5-qtquickcontrols
+Requires:   qt5-qttools-paths
+Requires:   qt5-qttools-qdbus
 Requires:   coreutils
 Requires:   dbus-x11
 Requires:   xorg-x11-apps
