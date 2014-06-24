@@ -157,6 +157,7 @@ Group:      Applications/System
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 Requires:   sddm
+Requires:   kde5-oxygen-icon-theme
 
 %description -n sddm-theme-breeze
 This package contains the "Breeze" theme for SDDM.

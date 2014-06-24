@@ -218,5 +218,6 @@ SubPackages:
         This package contains the "Breeze" theme for SDDM.
       Requires:
           - sddm
+          - kde5-oxygen-icon-theme
       Files:
           - "%{_datadir}/sddm/themes/breeze"
