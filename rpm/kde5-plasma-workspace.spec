@@ -155,7 +155,6 @@ Documentation and user manuals for %{name}
 Summary:    SDDM "Breeze" theme
 Group:      Applications/System
 BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
 Requires:   sddm
 Requires:   kde5-oxygen-icon-theme
 

@@ -212,6 +212,7 @@ SubPackages:
     - Name: sddm-theme-breeze
       AsWholeName: True
       BuildArch: noarch
+      AutoDepend: False
       Group: Applications/System
       Summary: SDDM "Breeze" theme
       Description: |
