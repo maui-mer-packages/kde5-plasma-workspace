@@ -11,6 +11,7 @@ SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
+    - kde.pam
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package
@@ -169,6 +170,7 @@ Files:
     - "%{_kde5_datadir}/drkonqi/pics/*.png"
     - "%{_kde5_sysconfdir}/xdg/*.knsrc"
     - "%{_kde5_sysconfdir}/xdg/autostart/*.desktop"
+    - "%{_kde5_sysconfdir}/pam.d/kde"
     - "%{_datadir}/desktop-directories/*.directory"
     - "%{_datadir}/dbus-1/services/*.service"
     - "%{_datadir}/kservices5/*.desktop"
@@ -179,8 +181,6 @@ Files:
     - "%{_datadir}/applications/*.desktop"
     - "%{_datadir}/xsessions/plasma.desktop"
     - "%{_datadir}/config.kcfg"
-
-# NOTE: various integration bits are not being created manually as their need on Mer is unclear (pam config moving around, profile.d with overriden paths paths ...)
 
 SubPackages:
     - Name: devel

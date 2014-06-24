@@ -15,6 +15,7 @@ Group:      System/Base
 License:    GPLv2+
 URL:        http://www.kde.org
 Source0:    %{name}-%{version}.tar.xz
+Source1:    kde.pam
 Source100:  kde5-plasma-workspace.yaml
 Source101:  kde5-plasma-workspace-rpmlintrc
 Requires:   kde5-filesystem
@@ -204,6 +205,9 @@ chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
 mv -f %{buildroot}%{_datadir}/apps/sddm %{buildroot}%{_datadir}
 rm -rf %{buildroot}%{_datadir}/apps
+
+# Makes kcheckpass work
+install -m455 -p -D %{SOURCE1} %{buildroot}%{_kde5_sysconfdir}/pam.d/kde
 # << install post
 
 desktop-file-install --delete-original       \
@@ -234,6 +238,7 @@ desktop-file-install --delete-original       \
 %{_kde5_datadir}/drkonqi/pics/*.png
 %{_kde5_sysconfdir}/xdg/*.knsrc
 %{_kde5_sysconfdir}/xdg/autostart/*.desktop
+%{_kde5_sysconfdir}/pam.d/kde
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/kservices5/*.desktop
