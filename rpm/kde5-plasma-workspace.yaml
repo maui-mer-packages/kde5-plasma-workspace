@@ -13,6 +13,9 @@ Sources:
     - "%{name}-%{version}.tar.xz"
     - kde.pam
 
+Patches:
+    - link-plasmashell-to-kf5xmlgui.patch
+
 RpmLintIgnore:
     - devel-file-in-non-devel-package
     - no-changelogname-tag

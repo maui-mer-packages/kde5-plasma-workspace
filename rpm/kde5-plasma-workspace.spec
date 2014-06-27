@@ -18,6 +18,7 @@ Source0:    %{name}-%{version}.tar.xz
 Source1:    kde.pam
 Source100:  kde5-plasma-workspace.yaml
 Source101:  kde5-plasma-workspace-rpmlintrc
+Patch0:     link-plasmashell-to-kf5xmlgui.patch
 Requires:   kde5-filesystem
 Requires:   kf5-kinit
 Requires:   kf5-kded
@@ -217,6 +218,8 @@ This package contains the "Breeze" theme for SDDM.
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
+# link-plasmashell-to-kf5xmlgui.patch
+%patch0 -p1
 # >> setup
 # << setup
 
