@@ -142,6 +142,57 @@ The %{name}-devel package contains the files necessary to develop applications
 that use %{name}.
 
 
+%package shell
+Summary:    Plasma shell autostart entry
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description shell
+Autostart entry that brings the Plasma desktop up.
+
+
+%package lookandfeel
+Summary:    Plasma look and feel
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description lookandfeel
+Plasma look and feel.
+
+
+%package plasmoids
+Summary:    Widgets for Plasma
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description plasmoids
+Widgets for Plasma.
+
+
+%package wallpapers
+Summary:    Wallpaper plugins for Plasma
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description wallpapers
+Wallpaper plugins for Plasma.
+
+
+%package session
+Summary:    Plasma session entry
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+Requires:   %{name}-shell = %{version}-%{release}
+
+%description session
+Plasma session entry for display managers.
+
+
 %package doc
 Summary:    Documentation and user manuals for %{name}
 Group:      Documentation
@@ -154,10 +205,10 @@ Documentation and user manuals for %{name}
 
 %package -n sddm-theme-breeze
 Summary:    SDDM "Breeze" theme
-Group:      Applications/System
+Group:      System/GUI/Other
 BuildArch:  noarch
 Requires:   sddm
-Requires:   kde5-oxygen-icon-theme
+Requires:   oxygen-icon-theme
 
 %description -n sddm-theme-breeze
 This package contains the "Breeze" theme for SDDM.
@@ -216,6 +267,11 @@ desktop-file-install --delete-original       \
 
 %files
 %defattr(-,root,root,-)
+%dir %{_kde5_datadir}/plasma/plasmoids
+%dir %{_kde5_datadir}/plasma/services
+%dir %{_kde5_datadir}/plasma/shareprovider
+%dir %{_kde5_datadir}/plasma/wallpapers
+%dir %{_kde5_datadir}/plasma/look-and-feel
 %{_kde5_sysconfdir}/profile.d/plasma5.sh
 %{_kde5_bindir}/*
 %{_kde5_libdir}/*.so.*
@@ -225,11 +281,8 @@ desktop-file-install --delete-original       \
 %{_kde5_libexecdir}/*
 %{_kde5_datadir}/ksmserver
 %{_kde5_datadir}/ksplash
-%{_kde5_datadir}/plasma/plasmoids
 %{_kde5_datadir}/plasma/services
 %{_kde5_datadir}/plasma/shareprovider
-%{_kde5_datadir}/plasma/wallpapers
-%{_kde5_datadir}/plasma/look-and-feel
 %{_kde5_datadir}/solid
 %{_kde5_datadir}/kstyle
 %{_kde5_datadir}/drkonqi/debuggers/external/*
@@ -238,6 +291,7 @@ desktop-file-install --delete-original       \
 %{_kde5_datadir}/drkonqi/pics/*.png
 %{_kde5_sysconfdir}/xdg/*.knsrc
 %{_kde5_sysconfdir}/xdg/autostart/*.desktop
+%exclude %{_kde5_sysconfdir}/xdg/autostart/plasmashell.desktop
 %{_kde5_sysconfdir}/pam.d/kde
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
@@ -247,7 +301,6 @@ desktop-file-install --delete-original       \
 %{_datadir}/kservicetypes5/*.desktop
 %{_datadir}/knotifications5/*.notifyrc
 %{_datadir}/applications/*.desktop
-%{_datadir}/xsessions/plasma.desktop
 %{_datadir}/config.kcfg
 # >> files
 # << files
@@ -267,6 +320,36 @@ desktop-file-install --delete-original       \
 %{_datadir}/dbus-1/interfaces/*.xml
 # >> files devel
 # << files devel
+
+%files shell
+%defattr(-,root,root,-)
+%{_kde5_sysconfdir}/xdg/autostart/plasmashell.desktop
+# >> files shell
+# << files shell
+
+%files lookandfeel
+%defattr(-,root,root,-)
+%{_kde5_datadir}/plasma/look-and-feel/*
+# >> files lookandfeel
+# << files lookandfeel
+
+%files plasmoids
+%defattr(-,root,root,-)
+%{_kde5_datadir}/plasma/plasmoids/*
+# >> files plasmoids
+# << files plasmoids
+
+%files wallpapers
+%defattr(-,root,root,-)
+%{_kde5_datadir}/plasma/wallpapers/*
+# >> files wallpapers
+# << files wallpapers
+
+%files session
+%defattr(-,root,root,-)
+%{_datadir}/xsessions/plasma.desktop
+# >> files session
+# << files session
 
 %files doc
 %defattr(-,root,root,-)
