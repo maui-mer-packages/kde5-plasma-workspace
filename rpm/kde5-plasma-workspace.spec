@@ -254,9 +254,6 @@ EOF
 
 chrpath --delete %{buildroot}/%{_kde5_plugindir}/phonon_platform/kde.so
 
-mv -f %{buildroot}%{_datadir}/apps/sddm %{buildroot}%{_datadir}
-rm -rf %{buildroot}%{_datadir}/apps
-
 # Makes kcheckpass work
 install -m455 -p -D %{SOURCE1} %{buildroot}%{_kde5_sysconfdir}/pam.d/kde
 # << install post
