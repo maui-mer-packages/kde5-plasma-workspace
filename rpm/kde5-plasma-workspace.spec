@@ -19,6 +19,11 @@ Source1:    kde.pam
 Source100:  kde5-plasma-workspace.yaml
 Source101:  kde5-plasma-workspace-rpmlintrc
 Patch0:     link-plasmashell-to-kf5xmlgui.patch
+Patch1:     0001-Load-custom-look-feel-package.patch
+Patch2:     0002-Shell-use-look-and-feel-package-from-configuration.patch
+Patch3:     0003-KSplash-load-look-and-feel-package-from-configuratio.patch
+Patch4:     0004-KRunner-load-look-and-feel-package-from-configuratio.patch
+Patch5:     0005-ksmserver-load-look-and-feel-package-from-configurat.patch
 Requires:   kde5-filesystem
 Requires:   kf5-kinit
 Requires:   kf5-kded
@@ -220,6 +225,16 @@ This package contains the "Breeze" theme for SDDM.
 
 # link-plasmashell-to-kf5xmlgui.patch
 %patch0 -p1
+# 0001-Load-custom-look-feel-package.patch
+%patch1 -p1
+# 0002-Shell-use-look-and-feel-package-from-configuration.patch
+%patch2 -p1
+# 0003-KSplash-load-look-and-feel-package-from-configuratio.patch
+%patch3 -p1
+# 0004-KRunner-load-look-and-feel-package-from-configuratio.patch
+%patch4 -p1
+# 0005-ksmserver-load-look-and-feel-package-from-configurat.patch
+%patch5 -p1
 # >> setup
 # << setup
 

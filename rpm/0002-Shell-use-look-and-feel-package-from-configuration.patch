@@ -1,0 +1,34 @@
+From 18e61440a59b8634b6bfb70e1458f53097a9f924 Mon Sep 17 00:00:00 2001
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Thu, 3 Jul 2014 21:43:45 +0200
+Subject: [PATCH 2/5] Shell use look and feel package from configuration
+
+Load look and feel package specified by the configuration, fall back to
+the default org.kde.lookandfeel.
+
+The package specified from the command line takes precedence.
+---
+ shell/shellcorona.cpp | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/shell/shellcorona.cpp b/shell/shellcorona.cpp
+index 1bec09e..526eb8a 100644
+--- a/shell/shellcorona.cpp
++++ b/shell/shellcorona.cpp
+@@ -1251,8 +1251,11 @@ void ShellCorona::desktopContainmentDestroyed(QObject *obj)
+ Plasma::Package ShellCorona::lookAndFeelPackage() const
+ {
+     if (!d->lookNFeelPackage.isValid()) {
+-        //TODO: make loading from config once we have some UI for setting the package
+-        QString lookAndFeel("org.kde.lookandfeel");
++        // Look and feel package from configuration
++        KConfigGroup kdeglobals(KSharedConfig::openConfig("kdeglobals"), QStringLiteral("General"));
++        QString lookAndFeel = kdeglobals.readEntry(QStringLiteral("LookAndFeel"), QStringLiteral("org.kde.lookandfeel"));
++
++        // Force a specific look and feel package with a command line argument
+         if (!ShellManager::s_fixedLookAndFeel.isEmpty())
+             lookAndFeel = ShellManager::s_fixedLookAndFeel;
+ 
+-- 
+1.9.1
+
