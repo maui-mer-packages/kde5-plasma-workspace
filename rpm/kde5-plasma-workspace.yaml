@@ -14,7 +14,6 @@ Sources:
     - kde.pam
 
 Patches:
-    - link-plasmashell-to-kf5xmlgui.patch
     - 0001-Load-custom-look-feel-package.patch
     - 0002-Shell-use-look-and-feel-package-from-configuration.patch
     - 0003-KSplash-load-look-and-feel-package-from-configuratio.patch
