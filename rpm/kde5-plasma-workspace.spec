@@ -9,7 +9,7 @@ Name:       kde5-plasma-workspace
 # << macros
 
 Summary:    Plasma 5 workspace applications and applets
-Version:    4.97.0
+Version:    4.98.0
 Release:    1
 Group:      System/Base
 License:    GPLv2+
