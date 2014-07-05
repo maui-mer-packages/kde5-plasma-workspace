@@ -1,4 +1,4 @@
-From 18e61440a59b8634b6bfb70e1458f53097a9f924 Mon Sep 17 00:00:00 2001
+From 876a328f5a26f6f9a5051412fbd71f1eb68efbd3 Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Thu, 3 Jul 2014 21:43:45 +0200
 Subject: [PATCH 2/5] Shell use look and feel package from configuration
@@ -7,6 +7,8 @@ Load look and feel package specified by the configuration, fall back to
 the default org.kde.lookandfeel.
 
 The package specified from the command line takes precedence.
+
+BUG:336844
 ---
  shell/shellcorona.cpp | 7 +++++--
  1 file changed, 5 insertions(+), 2 deletions(-)

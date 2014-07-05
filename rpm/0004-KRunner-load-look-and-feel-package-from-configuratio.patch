@@ -1,17 +1,27 @@
-From 6b6d6132d0a349b41219e7871190139db21f380a Mon Sep 17 00:00:00 2001
+From ea78f9bf903902ff352a1aeb4e0d24e30d82c7ff Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Thu, 3 Jul 2014 21:47:27 +0200
 Subject: [PATCH 4/5] KRunner load look and feel package from configuration
 
+BUG:336844
 ---
- krunner/view.cpp | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ krunner/view.cpp | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/krunner/view.cpp b/krunner/view.cpp
-index 488b342..80e07bc 100644
+index 488b342..b1eb92d 100644
 --- a/krunner/view.cpp
 +++ b/krunner/view.cpp
-@@ -79,8 +79,12 @@ View::View(QWindow *parent)
+@@ -27,6 +27,8 @@
+ #include <QQmlEngine>
+ #include <QClipboard>
+ 
++#include <KConfigGroup>
++#include <KSharedConfig>
+ #include <KWindowSystem>
+ #include <KWindowEffects>
+ #include <KAuthorized>
+@@ -79,8 +81,12 @@ View::View(QWindow *parent)
      }
  
      ShellPluginLoader::init();

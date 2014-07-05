@@ -1,17 +1,27 @@
-From 28a49e8f8343d9d8106cd5cfecb2ab24a9eff3c7 Mon Sep 17 00:00:00 2001
+From f1ed40b018a01061b8e5e1b4495acf1d62b2f364 Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Thu, 3 Jul 2014 21:46:19 +0200
 Subject: [PATCH 3/5] KSplash load look and feel package from configuration
 
+BUG:336844
 ---
- ksplash/ksplashqml/SplashWindow.cpp | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ ksplash/ksplashqml/SplashWindow.cpp | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/ksplash/ksplashqml/SplashWindow.cpp b/ksplash/ksplashqml/SplashWindow.cpp
-index 23603f5..8e4b21d 100644
+index 23603f5..b989664 100644
 --- a/ksplash/ksplashqml/SplashWindow.cpp
 +++ b/ksplash/ksplashqml/SplashWindow.cpp
-@@ -86,8 +86,12 @@ void SplashWindow::setGeometry(const QRect& rect)
+@@ -19,6 +19,8 @@
+ 
+ #include "SplashWindow.h"
+ 
++#include <KConfigGroup>
++#include <KSharedConfig>
+ #include <QQmlContext>
+ #include <QQuickItem>
+ #include <QKeyEvent>
+@@ -86,8 +88,12 @@ void SplashWindow::setGeometry(const QRect& rect)
  
      if (oldGeometryEmpty) {
          ShellPluginLoader::init();
