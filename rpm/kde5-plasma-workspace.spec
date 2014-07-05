@@ -127,6 +127,7 @@ BuildRequires:  kf5-plasma-devel
 BuildRequires:  kf5-kdewebkit-devel
 BuildRequires:  kf5-kdelibs4support-devel
 BuildRequires:  kf5-baloo-devel
+BuildRequires:  kf5-ktexteditor-devel
 BuildRequires:  kde5-libksysguard-devel
 BuildRequires:  libkscreen-devel
 BuildRequires:  kde5-kwin-devel

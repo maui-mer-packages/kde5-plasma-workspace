@@ -64,6 +64,7 @@ PkgBR:
     - kf5-kdewebkit-devel
     - kf5-kdelibs4support-devel
     - kf5-baloo-devel
+    - kf5-ktexteditor-devel
     - kde5-libksysguard-devel
     - libkscreen-devel
     - kde5-kwin-devel
