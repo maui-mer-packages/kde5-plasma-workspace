@@ -322,6 +322,7 @@ desktop-file-install --delete-original       \
 %{_kde5_libdir}/libtaskmanager.so
 %{_kde5_libdir}/libkworkspace.so
 %{_kde5_libdir}/libplasma-geolocation-interface.so
+%{_kde5_libdir}/libKF5XmlRpcClientPrivate.so
 %{_kde5_includedir}/*
 %{_libdir}/cmake/KRunnerAppDBusInterface
 %{_libdir}/cmake/KSMServerDBusInterface
