@@ -79,7 +79,7 @@ PkgConfigBR:
     - Qt5Concurrent
     - Qt5Test
     - Qt5WebKit
-    - Qt5Declarative
+    - Qt5Qml
     - Qt5Script
     - Qt5X11Extras
     - Qt5Quick
