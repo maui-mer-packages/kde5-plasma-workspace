@@ -19,6 +19,7 @@ Patches:
     - 0003-KSplash-load-look-and-feel-package-from-configuratio.patch
     - 0004-KRunner-load-look-and-feel-package-from-configuratio.patch
     - 0005-ksmserver-load-look-and-feel-package-from-configurat.patch
+    - 0001-Don-t-override-default-font-configuration.patch
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package

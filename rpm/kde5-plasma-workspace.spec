@@ -23,6 +23,7 @@ Patch1:     0002-Shell-use-look-and-feel-package-from-configuration.patch
 Patch2:     0003-KSplash-load-look-and-feel-package-from-configuratio.patch
 Patch3:     0004-KRunner-load-look-and-feel-package-from-configuratio.patch
 Patch4:     0005-ksmserver-load-look-and-feel-package-from-configurat.patch
+Patch5:     0001-Don-t-override-default-font-configuration.patch
 Requires:   kde5-filesystem
 Requires:   kf5-kinit
 Requires:   kf5-kded
@@ -231,6 +232,8 @@ This package contains the "Breeze" theme for SDDM.
 %patch3 -p1
 # 0005-ksmserver-load-look-and-feel-package-from-configurat.patch
 %patch4 -p1
+# 0001-Don-t-override-default-font-configuration.patch
+%patch5 -p1
 # >> setup
 # << setup
 

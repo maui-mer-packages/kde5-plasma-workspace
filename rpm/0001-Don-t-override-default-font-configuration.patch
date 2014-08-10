@@ -1,0 +1,31 @@
+From 648b889c70d530c40bfbf49d8660cee3c4598ead Mon Sep 17 00:00:00 2001
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Sun, 10 Aug 2014 08:41:50 +0000
+Subject: [PATCH] Don't override default font configuration
+
+Maui already has defaults.
+---
+ startkde/startkde.cmake | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/startkde/startkde.cmake b/startkde/startkde.cmake
+index ed3ef58..1adf541 100644
+--- a/startkde/startkde.cmake
++++ b/startkde/startkde.cmake
+@@ -97,13 +97,6 @@ cat >$kdeglobalsfile <<EOF
+ XftAntialias=true
+ XftHintStyle=hintmedium
+ XftSubPixel=none
+-desktopFont=Oxygen-Sans,10,-1,5,50,0,0,0,0,0
+-fixed=Oxygen Mono,9,-1,5,50,0,0,0,0,0
+-font=Oxygen-Sans,10,-1,5,50,0,0,0,0,0
+-menuFont=Oxygen-Sans,10,-1,5,50,0,0,0,0,0
+-smallestReadableFont=Oxygen-Sans,8,-1,5,50,0,0,0,0,0
+-taskbarFont=Oxygen-Sans,10,-1,5,50,0,0,0,0,0
+-toolBarFont=Oxygen-Sans,9,-1,5,50,0,0,0,0,0
+ EOF
+ }
+ 
+-- 
+1.8.3-rc3
+
