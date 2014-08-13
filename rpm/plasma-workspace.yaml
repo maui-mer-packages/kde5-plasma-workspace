@@ -1,4 +1,4 @@
-Name         : kde5-plasma-workspace
+Name         : plasma-workspace
 Version      : 5.0.0
 Release      : 1
 Group        : System/Base
@@ -14,11 +14,6 @@ Sources:
     - kde.pam
 
 Patches:
-    - 0001-Load-custom-look-feel-package.patch
-    - 0002-Shell-use-look-and-feel-package-from-configuration.patch
-    - 0003-KSplash-load-look-and-feel-package-from-configuratio.patch
-    - 0004-KRunner-load-look-and-feel-package-from-configuratio.patch
-    - 0005-ksmserver-load-look-and-feel-package-from-configurat.patch
     - 0001-Don-t-override-default-font-configuration.patch
 
 RpmLintIgnore:
@@ -32,7 +27,6 @@ Builder      : none
 
 PkgBR:
     - kf5-rpm-macros
-    - kde5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
     # TODO: n/a
@@ -48,27 +42,26 @@ PkgBR:
     #- libraw1394-devel
     #- gpsd-devel
     - phonon-qt5-devel
-    - kf5-umbrella
-    - kf5-plasma-devel
-    - kf5-kdoctools-devel
-    - kf5-krunner-devel
-    - kf5-kjsembed-devel
-    - kf5-knotifyconfig-devel
-    - kf5-kdesu-devel
-    - kf5-knewstuff-devel
-    - kf5-kwallet-devel
-    - kf5-kcmutils-devel
-    - kf5-kidletime-devel
-    - kf5-threadweaver-devel
-    - kf5-kdeclarative-devel
-    - kf5-plasma-devel
-    - kf5-kdewebkit-devel
-    - kf5-kdelibs4support-devel
-    - kf5-baloo-devel
-    - kf5-ktexteditor-devel
-    - kde5-libksysguard-devel
+    - plasma-devel
+    - kdoctools-devel
+    - krunner-devel
+    - kjsembed-devel
+    - knotifyconfig-devel
+    - kdesu-devel
+    - knewstuff-devel
+    - kwallet-devel
+    - kcmutils-devel
+    - kidletime-devel
+    - threadweaver-devel
+    - kdeclarative-devel
+    - plasma-devel
+    - kdewebkit-devel
+    - kdelibs4support-devel
+    - baloo-devel
+    - ktexteditor-devel
+    - libksysguard-devel
     - libkscreen-devel
-    - kde5-kwin-devel
+    - kwin-devel
     - chrpath
 PkgConfigBR:
     - Qt5Core
@@ -135,10 +128,10 @@ PkgConfigBR:
     - xcb-keysyms
     - xcb-renderutil
 Requires:
-    - kde5-filesystem
-    - kf5-kinit
-    - kf5-kded
-    - kf5-kdoctools
+    - kf5-filesystem
+    - kinit
+    - kded
+    - kdoctools
     - qt5-qtquickcontrols
     - qt5-qttools-paths
     - qt5-qttools-qdbus
@@ -155,38 +148,38 @@ RequiresPostUn:
     - /sbin/ldconfig
 
 Files:
-    - "%dir %{_kde5_datadir}/plasma/plasmoids"
-    - "%dir %{_kde5_datadir}/plasma/services"
-    - "%dir %{_kde5_datadir}/plasma/shareprovider"
-    - "%dir %{_kde5_datadir}/plasma/wallpapers"
-    - "%dir %{_kde5_datadir}/plasma/look-and-feel"
-    - "%{_kde5_sysconfdir}/profile.d/plasma5.sh"
-    - "%{_kde5_bindir}/*"
-    - "%{_kde5_libdir}/*.so.*"
-    - "%{_kde5_libdir}/libkdeinit5_*.so"
-    - "%{_kde5_plugindir}/*"
+    - "%dir %{_kf5_sharedir}/plasma/plasmoids"
+    - "%dir %{_kf5_sharedir}/plasma/services"
+    - "%dir %{_kf5_sharedir}/plasma/shareprovider"
+    - "%dir %{_kf5_sharedir}/plasma/wallpapers"
+    - "%dir %{_kf5_sharedir}/plasma/look-and-feel"
+    - "%{_kf5_sysconfdir}/profile.d/plasma5.sh"
+    - "%{_kf5_bindir}/*"
+    - "%{_kf5_libdir}/*.so.*"
+    - "%{_kf5_libdir}/libkdeinit5_*.so"
+    - "%{_kf5_plugindir}/*"
     - "%{_kf5_qmldir}/org/kde/*"
-    - "%{_kde5_libexecdir}/*"
-    - "%{_kde5_datadir}/ksmserver"
-    - "%{_kde5_datadir}/ksplash"
-    - "%{_kde5_datadir}/plasma/services"
-    - "%{_kde5_datadir}/plasma/shareprovider"
-    - "%{_kde5_datadir}/solid"
-    - "%{_kde5_datadir}/kstyle"
-    - "%{_kde5_datadir}/drkonqi/debuggers/external/*"
-    - "%{_kde5_datadir}/drkonqi/debuggers/internal/*"
-    - "%{_kde5_datadir}/drkonqi/mappings"
-    - "%{_kde5_datadir}/drkonqi/pics/*.png"
-    - "%{_kde5_sysconfdir}/xdg/*.knsrc"
-    - "%{_kde5_sysconfdir}/xdg/autostart/*.desktop"
-    - "%exclude %{_kde5_sysconfdir}/xdg/autostart/plasmashell.desktop"
-    - "%{_kde5_sysconfdir}/pam.d/kde"
+    - "%{_kf5_libexecdir}/*"
+    - "%{_kf5_sharedir}/ksmserver"
+    - "%{_kf5_sharedir}/ksplash"
+    - "%{_kf5_sharedir}/plasma/services"
+    - "%{_kf5_sharedir}/plasma/shareprovider"
+    - "%{_kf5_sharedir}/solid"
+    - "%{_kf5_sharedir}/kstyle"
+    - "%{_kf5_sharedir}/drkonqi/debuggers/external/*"
+    - "%{_kf5_sharedir}/drkonqi/debuggers/internal/*"
+    - "%{_kf5_sharedir}/drkonqi/mappings"
+    - "%{_kf5_sharedir}/drkonqi/pics/*.png"
+    - "%{_kf5_configdir}/*.knsrc"
+    - "%{_kf5_configdir}/autostart/*.desktop"
+    - "%exclude %{_kf5_configdir}/autostart/plasmashell.desktop"
+    - "%{_kf5_sysconfdir}/pam.d/kde"
+    - "%{_kf5_servicesdir}/*.desktop"
+    - "%{_kf5_servicesdir}/kded/*.desktop"
+    - "%{_kf5_servicetypesdir}/*.protocol"
+    - "%{_kf5_servicetypesdir}/*.desktop"
     - "%{_datadir}/desktop-directories/*.directory"
     - "%{_datadir}/dbus-1/services/*.service"
-    - "%{_datadir}/kservices5/*.desktop"
-    - "%{_datadir}/kservices5/*.protocol"
-    - "%{_datadir}/kservices5/kded/*.desktop"
-    - "%{_datadir}/kservicetypes5/*.desktop"
     - "%{_datadir}/knotifications5/*.notifyrc"
     - "%{_datadir}/applications/*.desktop"
     - "%{_datadir}/config.kcfg"
@@ -199,18 +192,18 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Files:
-          - "%{_kde5_libdir}/libweather_ion.so"
-          - "%{_kde5_libdir}/libtaskmanager.so"
-          - "%{_kde5_libdir}/libkworkspace.so"
-          - "%{_kde5_libdir}/libplasma-geolocation-interface.so"
-          - "%{_kde5_libdir}/libKF5XmlRpcClientPrivate.so"
-          - "%{_kde5_includedir}/*"
-          - "%{_libdir}/cmake/KRunnerAppDBusInterface"
-          - "%{_libdir}/cmake/KSMServerDBusInterface"
-          - "%{_libdir}/cmake/LibKWorkspace"
-          - "%{_libdir}/cmake/LibTaskManager"
-          - "%{_libdir}/cmake/ScreenSaverDBusInterface"
-          - "%{_datadir}/dbus-1/interfaces/*.xml"
+          - "%{_kf5_libdir}/libweather_ion.so"
+          - "%{_kf5_libdir}/libtaskmanager.so"
+          - "%{_kf5_libdir}/libkworkspace.so"
+          - "%{_kf5_libdir}/libplasma-geolocation-interface.so"
+          - "%{_kf5_libdir}/libKF5XmlRpcClientPrivate.so"
+          - "%{_kf5_includedir}/*"
+          - "%{_kf5_cmakedir}/KRunnerAppDBusInterface"
+          - "%{_kf5_cmakedir}/KSMServerDBusInterface"
+          - "%{_kf5_cmakedir}/LibKWorkspace"
+          - "%{_kf5_cmakedir}/LibTaskManager"
+          - "%{_kf5_cmakedir}/ScreenSaverDBusInterface"
+          - "%{_kf5_dbusinterfacesdir}/*.xml"
     - Name: shell
       Group: System/GUI/Other
       BuildArch: noarch
@@ -218,7 +211,7 @@ SubPackages:
       Description: |
         Autostart entry that brings the Plasma desktop up.
       Files:
-          - "%{_kde5_sysconfdir}/xdg/autostart/plasmashell.desktop"
+          - "%{_kf5_configdir}/autostart/plasmashell.desktop"
     - Name: lookandfeel
       Group: System/GUI/Other
       BuildArch: noarch
@@ -226,7 +219,7 @@ SubPackages:
       Description: |
         Plasma look and feel.
       Files:
-          - "%{_kde5_datadir}/plasma/look-and-feel/*"
+          - "%{_kf5_sharedir}/plasma/look-and-feel/*"
     - Name: plasmoids
       Group: System/GUI/Other
       BuildArch: noarch
@@ -234,7 +227,7 @@ SubPackages:
       Description: |
         Widgets for Plasma.
       Files:
-          - "%{_kde5_datadir}/plasma/plasmoids/*"
+          - "%{_kf5_sharedir}/plasma/plasmoids/*"
     - Name: wallpapers
       Group: System/GUI/Other
       BuildArch: noarch
@@ -242,7 +235,7 @@ SubPackages:
       Description: |
         Wallpaper plugins for Plasma.
       Files:
-          - "%{_kde5_datadir}/plasma/wallpapers/*"
+          - "%{_kf5_sharedir}/plasma/wallpapers/*"
     - Name: session
       Group: System/GUI/Other
       BuildArch: noarch
@@ -260,7 +253,7 @@ SubPackages:
       Description: |
         Documentation and user manuals for %{name}
       Files:
-          - "%{_datadir}/doc/HTML/en/*"
+          - "%{_kf5_htmldir}/en/*"
     - Name: sddm-theme-breeze
       AsWholeName: True
       BuildArch: noarch
