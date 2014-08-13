@@ -79,6 +79,7 @@ PkgConfigBR:
     - Qt5Quick
     - Qt5WebKitWidgets
     - Qt5PrintSupport
+    - Qt5QuickWidgets
     - zlib
     - glib-2.0
     - fontconfig
