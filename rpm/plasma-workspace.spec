@@ -298,6 +298,7 @@ desktop-file-install --delete-original       \
 %{_datadir}/knotifications5/*.notifyrc
 %{_datadir}/applications/*.desktop
 %{_datadir}/config.kcfg
+%{_kf5_sharedir}/plasma/kcms/*
 # >> files
 # << files
 
