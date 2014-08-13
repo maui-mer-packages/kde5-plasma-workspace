@@ -276,7 +276,7 @@ desktop-file-install --delete-original       \
 %{_kf5_libdir}/libkdeinit5_*.so
 %{_kf5_plugindir}/*
 %{_kf5_qmldir}/org/kde/*
-%{_kf5_libexecdir}/*
+%{_kf5_libdir}/libexec/*
 %{_kf5_sharedir}/ksmserver
 %{_kf5_sharedir}/ksplash
 %{_kf5_sharedir}/plasma/services
@@ -291,10 +291,8 @@ desktop-file-install --delete-original       \
 %{_kf5_configdir}/autostart/*.desktop
 %exclude %{_kf5_configdir}/autostart/plasmashell.desktop
 %{_kf5_sysconfdir}/pam.d/kde
-%{_kf5_servicesdir}/*.desktop
-%{_kf5_servicesdir}/kded/*.desktop
-%{_kf5_servicetypesdir}/*.protocol
-%{_kf5_servicetypesdir}/*.desktop
+%{_kf5_servicesdir}/*
+%{_kf5_servicetypesdir}/*
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
 %{_datadir}/knotifications5/*.notifyrc
@@ -305,12 +303,10 @@ desktop-file-install --delete-original       \
 
 %files devel
 %defattr(-,root,root,-)
-%{_kf5_libdir}/libweather_ion.so
-%{_kf5_libdir}/libtaskmanager.so
-%{_kf5_libdir}/libkworkspace.so
+%{_kf5_libdir}/*.so
 %{_kf5_libdir}/libplasma-geolocation-interface.so
 %{_kf5_libdir}/libKF5XmlRpcClientPrivate.so
-%{_kf5_includedir}/*
+%{_includedir}/*
 %{_kf5_cmakedir}/KRunnerAppDBusInterface
 %{_kf5_cmakedir}/KSMServerDBusInterface
 %{_kf5_cmakedir}/LibKWorkspace
