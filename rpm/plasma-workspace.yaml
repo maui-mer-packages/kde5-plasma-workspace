@@ -226,14 +226,33 @@ SubPackages:
         Widgets for Plasma.
       Files:
           - "%{_kf5_sharedir}/plasma/plasmoids/*"
-    - Name: wallpapers
+    - Name: wallpaper-color
       Group: System/GUI/Other
       BuildArch: noarch
-      Summary: Wallpaper plugins for Plasma
+      Summary: Color wallpaper plugin for Plasma
       Description: |
-        Wallpaper plugins for Plasma.
+        Color wallpaper plugins for Plasma.
       Files:
-          - "%{_kf5_sharedir}/plasma/wallpapers/*"
+          - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.color"
+          - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.color/*"
+    - Name: wallpaper-image
+      Group: System/GUI/Other
+      BuildArch: noarch
+      Summary: Image wallpaper plugin for Plasma
+      Description: |
+        Image wallpaper plugin for Plasma.
+      Files:
+          - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.image"
+          - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.image/*"
+    - Name: wallpaper-slideshow
+      Group: System/GUI/Other
+      BuildArch: noarch
+      Summary: Slideshow wallpaper plugin for Plasma
+      Description: |
+        Slideshow wallpaper plugin for Plasma.
+      Files:
+          - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow"
+          - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*"
     - Name: session
       Group: System/GUI/Other
       BuildArch: noarch

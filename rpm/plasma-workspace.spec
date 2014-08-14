@@ -171,14 +171,34 @@ Requires:   %{name} = %{version}-%{release}
 Widgets for Plasma.
 
 
-%package wallpapers
-Summary:    Wallpaper plugins for Plasma
+%package wallpaper-color
+Summary:    Color wallpaper plugin for Plasma
 Group:      System/GUI/Other
 BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 
-%description wallpapers
-Wallpaper plugins for Plasma.
+%description wallpaper-color
+Color wallpaper plugins for Plasma.
+
+
+%package wallpaper-image
+Summary:    Image wallpaper plugin for Plasma
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description wallpaper-image
+Image wallpaper plugin for Plasma.
+
+
+%package wallpaper-slideshow
+Summary:    Slideshow wallpaper plugin for Plasma
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+
+%description wallpaper-slideshow
+Slideshow wallpaper plugin for Plasma.
 
 
 %package session
@@ -335,11 +355,26 @@ desktop-file-install --delete-original       \
 # >> files plasmoids
 # << files plasmoids
 
-%files wallpapers
+%files wallpaper-color
 %defattr(-,root,root,-)
-%{_kf5_sharedir}/plasma/wallpapers/*
-# >> files wallpapers
-# << files wallpapers
+%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.color
+%{_kf5_sharedir}/plasma/wallpapers/org.kde.color/*
+# >> files wallpaper-color
+# << files wallpaper-color
+
+%files wallpaper-image
+%defattr(-,root,root,-)
+%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.image
+%{_kf5_sharedir}/plasma/wallpapers/org.kde.image/*
+# >> files wallpaper-image
+# << files wallpaper-image
+
+%files wallpaper-slideshow
+%defattr(-,root,root,-)
+%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow
+%{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*
+# >> files wallpaper-slideshow
+# << files wallpaper-slideshow
 
 %files session
 %defattr(-,root,root,-)
