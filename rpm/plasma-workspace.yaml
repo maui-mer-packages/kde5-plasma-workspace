@@ -253,6 +253,16 @@ SubPackages:
       Files:
           - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow"
           - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*"
+    - Name: wallpapers
+      Group: System/GUI/Other
+      BuildArch: noarch
+      Summary: Wwallpaper plugins for Plasma
+      Description: |
+        Wallpapers plugin for Plasma.
+      Requires:
+          - plasma-workspace-wallpaper-color
+          - plasma-workspace-wallpaper-image
+          - plasma-workspace-wallpaper-slideshow
     - Name: session
       Group: System/GUI/Other
       BuildArch: noarch

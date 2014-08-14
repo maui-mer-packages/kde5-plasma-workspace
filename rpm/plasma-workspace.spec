@@ -201,6 +201,19 @@ Requires:   %{name} = %{version}-%{release}
 Slideshow wallpaper plugin for Plasma.
 
 
+%package wallpapers
+Summary:    Wwallpaper plugins for Plasma
+Group:      System/GUI/Other
+BuildArch:  noarch
+Requires:   %{name} = %{version}-%{release}
+Requires:   plasma-workspace-wallpaper-color
+Requires:   plasma-workspace-wallpaper-image
+Requires:   plasma-workspace-wallpaper-slideshow
+
+%description wallpapers
+Wallpapers plugin for Plasma.
+
+
 %package session
 Summary:    Plasma session entry
 Group:      System/GUI/Other
@@ -375,6 +388,11 @@ desktop-file-install --delete-original       \
 %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*
 # >> files wallpaper-slideshow
 # << files wallpaper-slideshow
+
+%files wallpapers
+%defattr(-,root,root,-)
+# >> files wallpapers
+# << files wallpapers
 
 %files session
 %defattr(-,root,root,-)
