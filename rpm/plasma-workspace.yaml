@@ -15,7 +15,6 @@ Sources:
 
 Patches:
     - 0001-Don-t-override-default-font-configuration.patch
-    - 0001-use-the-proper-l-f-package-with-LookAndFeelAccess.patch
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package
