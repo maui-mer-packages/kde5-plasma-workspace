@@ -15,6 +15,7 @@ Sources:
 
 Patches:
     - 0001-Don-t-override-default-font-configuration.patch
+    - remove-activities.patch
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package

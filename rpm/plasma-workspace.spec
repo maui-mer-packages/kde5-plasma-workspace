@@ -19,6 +19,7 @@ Source1:    kde.pam
 Source100:  plasma-workspace.yaml
 Source101:  plasma-workspace-rpmlintrc
 Patch0:     0001-Don-t-override-default-font-configuration.patch
+Patch1:     remove-activities.patch
 Requires:   kf5-filesystem
 Requires:   kinit
 Requires:   kded
@@ -251,6 +252,8 @@ This package contains the "Breeze" theme for SDDM.
 
 # 0001-Don-t-override-default-font-configuration.patch
 %patch0 -p1
+# remove-activities.patch
+%patch1 -p1
 # >> setup
 # << setup
 
