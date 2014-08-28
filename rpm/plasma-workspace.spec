@@ -6,6 +6,7 @@
 Name:       plasma-workspace
 
 # >> macros
+%bcond_with plasma-activities
 # << macros
 
 Summary:    Plasma 5 workspace applications and applets
@@ -255,6 +256,11 @@ This package contains the "Breeze" theme for SDDM.
 # remove-activities.patch
 %patch1 -p1
 # >> setup
+%if %{with plasma-activities}
+# Revert the patch in case activities are enabled because
+# we cannot conditionally apply %patch above
+%patch1 -p1 -R
+%endif
 # << setup
 
 %build
