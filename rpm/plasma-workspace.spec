@@ -308,6 +308,7 @@ desktop-file-install --delete-original       \
 %{_kf5_libdir}/libkdeinit5_*.so
 %{_kf5_plugindir}/*
 %{_kf5_qmldir}/org/kde/*
+%exclude %{_kf5_qmldir}/org/kde/plasma/wallpapers/*
 %{_kf5_libdir}/libexec/*
 %{_kf5_sharedir}/ksmserver
 %{_kf5_sharedir}/ksplash
@@ -378,6 +379,7 @@ desktop-file-install --delete-original       \
 %defattr(-,root,root,-)
 %dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.image
 %{_kf5_sharedir}/plasma/wallpapers/org.kde.image/*
+%{_kf5_qmldir}/org/kde/plasma/wallpapers/*
 # >> files wallpaper-image
 # << files wallpaper-image
 
