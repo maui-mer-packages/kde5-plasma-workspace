@@ -276,6 +276,18 @@ chrpath --delete %{buildroot}%{_kf5_plugindir}/phonon_platform/kde.so
 
 # Makes kcheckpass work
 install -m455 -p -D %{SOURCE1} %{buildroot}%{_kf5_sysconfdir}/pam.d/kde
+
+%if !%{with plasma-activities}
+# Remove activities stuff
+rm -f %{buildroot}%{_kf5_servicesdir}/plasma-runner-activityrunner.desktop
+rm -f %{buildroot}%{_qt5_plugindir}/krunner_activities.so
+rm -f %{buildroot}%{_qt5_plugindir}/plasma/dataengine/plasma_engine_activities.so
+rm -f %{buildroot}%{_qt5_plugindir}/plasma_containmentactions_switchactivity.so
+rm -f %{buildroot}%{_kf5_servicesdir}/plasma-applet-org.kde.plasma.activitybar.desktop
+rm -f %{buildroot}%{_kf5_servicesdir}/plasma-containmentactions-switchactivity.desktop
+rm -f %{buildroot}%{_kf5_servicesdir}/plasma-engine-activities.desktop
+rm -f %{buildroot}%{_kf5_servicesdir}/plasma-runner-activityrunner.desktop
+%endif
 # << install post
 
 desktop-file-install --delete-original       \
