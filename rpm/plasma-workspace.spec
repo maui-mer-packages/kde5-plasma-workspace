@@ -203,19 +203,6 @@ Requires:   %{name} = %{version}-%{release}
 Slideshow wallpaper plugin for Plasma.
 
 
-%package wallpapers
-Summary:    Wwallpaper plugins for Plasma
-Group:      System/GUI/Other
-BuildArch:  noarch
-Requires:   %{name} = %{version}-%{release}
-Requires:   plasma-workspace-wallpaper-color
-Requires:   plasma-workspace-wallpaper-image
-Requires:   plasma-workspace-wallpaper-slideshow
-
-%description wallpapers
-Wallpapers plugin for Plasma.
-
-
 %package session
 Summary:    Plasma session entry
 Group:      System/GUI/Other
@@ -325,6 +312,7 @@ desktop-file-install --delete-original       \
 %exclude %{_kf5_configdir}/autostart/plasmashell.desktop
 %{_kf5_sysconfdir}/pam.d/kde
 %{_kf5_servicesdir}/*
+%exclude %{_kf5_servicesdir}/plasma-wallpaper-*
 %{_kf5_servicetypesdir}/*
 %{_datadir}/desktop-directories/*.directory
 %{_datadir}/dbus-1/services/*.service
@@ -372,6 +360,7 @@ desktop-file-install --delete-original       \
 %defattr(-,root,root,-)
 %dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.color
 %{_kf5_sharedir}/plasma/wallpapers/org.kde.color/*
+%{_kf5_servicesdir}/plasma-wallpaper-org.kde.color.desktop
 # >> files wallpaper-color
 # << files wallpaper-color
 
@@ -380,6 +369,7 @@ desktop-file-install --delete-original       \
 %dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.image
 %{_kf5_sharedir}/plasma/wallpapers/org.kde.image/*
 %{_kf5_qmldir}/org/kde/plasma/wallpapers/*
+%{_kf5_servicesdir}/plasma-wallpaper-org.kde.image.desktop
 # >> files wallpaper-image
 # << files wallpaper-image
 
@@ -387,13 +377,9 @@ desktop-file-install --delete-original       \
 %defattr(-,root,root,-)
 %dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow
 %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*
+%{_kf5_servicesdir}/plasma-wallpaper-org.kde.slideshow.desktop
 # >> files wallpaper-slideshow
 # << files wallpaper-slideshow
-
-%files wallpapers
-%defattr(-,root,root,-)
-# >> files wallpapers
-# << files wallpapers
 
 %files session
 %defattr(-,root,root,-)

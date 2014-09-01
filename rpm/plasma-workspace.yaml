@@ -178,6 +178,7 @@ Files:
     - "%exclude %{_kf5_configdir}/autostart/plasmashell.desktop"
     - "%{_kf5_sysconfdir}/pam.d/kde"
     - "%{_kf5_servicesdir}/*"
+    - "%exclude %{_kf5_servicesdir}/plasma-wallpaper-*"
     - "%{_kf5_servicetypesdir}/*"
     - "%{_datadir}/desktop-directories/*.directory"
     - "%{_datadir}/dbus-1/services/*.service"
@@ -237,6 +238,7 @@ SubPackages:
       Files:
           - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.color"
           - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.color/*"
+          - "%{_kf5_servicesdir}/plasma-wallpaper-org.kde.color.desktop"
     - Name: wallpaper-image
       Group: System/GUI/Other
       BuildArch: noarch
@@ -247,6 +249,7 @@ SubPackages:
           - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.image"
           - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.image/*"
           - "%{_kf5_qmldir}/org/kde/plasma/wallpapers/*"
+          - "%{_kf5_servicesdir}/plasma-wallpaper-org.kde.image.desktop"
     - Name: wallpaper-slideshow
       Group: System/GUI/Other
       BuildArch: noarch
@@ -256,16 +259,7 @@ SubPackages:
       Files:
           - "%dir %{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow"
           - "%{_kf5_sharedir}/plasma/wallpapers/org.kde.slideshow/*"
-    - Name: wallpapers
-      Group: System/GUI/Other
-      BuildArch: noarch
-      Summary: Wwallpaper plugins for Plasma
-      Description: |
-        Wallpapers plugin for Plasma.
-      Requires:
-          - plasma-workspace-wallpaper-color
-          - plasma-workspace-wallpaper-image
-          - plasma-workspace-wallpaper-slideshow
+          - "%{_kf5_servicesdir}/plasma-wallpaper-org.kde.slideshow.desktop"
     - Name: session
       Group: System/GUI/Other
       BuildArch: noarch
