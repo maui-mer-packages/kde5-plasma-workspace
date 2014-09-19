@@ -9,6 +9,12 @@ Name:       plasma-workspace
 %bcond_with plasma-activities
 # << macros
 
+# >> bcond_with
+# << bcond_with
+
+# >> bcond_without
+# << bcond_without
+
 Summary:    Plasma 5 workspace applications and applets
 Version:    5.0.0
 Release:    1
@@ -311,8 +317,8 @@ desktop-file-install --delete-original       \
 %{_kf5_libdir}/libexec/*
 %{_kf5_sharedir}/ksmserver
 %{_kf5_sharedir}/ksplash
-%{_kf5_sharedir}/plasma/services
-%{_kf5_sharedir}/plasma/shareprovider
+%{_kf5_sharedir}/plasma/services/*
+%{_kf5_sharedir}/plasma/shareprovider/*
 %{_kf5_sharedir}/solid
 %{_kf5_sharedir}/kstyle
 %{_kf5_sharedir}/drkonqi/debuggers/external/*
@@ -337,7 +343,6 @@ desktop-file-install --delete-original       \
 
 %files devel
 %defattr(-,root,root,-)
-%{_kf5_libdir}/*.so
 %{_kf5_libdir}/libplasma-geolocation-interface.so
 %{_kf5_libdir}/libKF5XmlRpcClientPrivate.so
 %{_includedir}/*

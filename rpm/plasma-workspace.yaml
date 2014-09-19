@@ -165,8 +165,8 @@ Files:
     - "%{_kf5_libdir}/libexec/*"
     - "%{_kf5_sharedir}/ksmserver"
     - "%{_kf5_sharedir}/ksplash"
-    - "%{_kf5_sharedir}/plasma/services"
-    - "%{_kf5_sharedir}/plasma/shareprovider"
+    - "%{_kf5_sharedir}/plasma/services/*"
+    - "%{_kf5_sharedir}/plasma/shareprovider/*"
     - "%{_kf5_sharedir}/solid"
     - "%{_kf5_sharedir}/kstyle"
     - "%{_kf5_sharedir}/drkonqi/debuggers/external/*"
@@ -195,7 +195,6 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Files:
-          - "%{_kf5_libdir}/*.so"
           - "%{_kf5_libdir}/libplasma-geolocation-interface.so"
           - "%{_kf5_libdir}/libKF5XmlRpcClientPrivate.so"
           - "%{_includedir}/*"
