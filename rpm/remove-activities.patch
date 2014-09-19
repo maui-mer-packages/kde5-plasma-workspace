@@ -1,18 +1,18 @@
-From 532fb797a680b920af06cc26162e14f51509aa29 Mon Sep 17 00:00:00 2001
+From 5b5eb015cf28fec2d3793a96ea65dfabd40ee00d Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Mon, 25 Aug 2014 18:54:28 +0000
 Subject: [PATCH] Get rid of activities action
 
 We don't want activities, remove it.
 ---
- shell/shellcorona.cpp | 14 --------------
- 1 file changed, 14 deletions(-)
+ shell/shellcorona.cpp | 10 ----------
+ 1 file changed, 10 deletions(-)
 
 diff --git a/shell/shellcorona.cpp b/shell/shellcorona.cpp
-index 29935a5..57aa347 100644
+index ad64f27..ca61724 100644
 --- a/shell/shellcorona.cpp
 +++ b/shell/shellcorona.cpp
-@@ -221,20 +221,6 @@ ShellCorona::ShellCorona(QObject *parent)
+@@ -164,16 +164,6 @@ ShellCorona::ShellCorona(QObject *parent)
      connect(KSycoca::self(), SIGNAL(databaseChanged(QStringList)), this, SLOT(checkAddPanelAction(QStringList)));
  
  
@@ -26,13 +26,9 @@ index 29935a5..57aa347 100644
 -    activityAction->setShortcut(QKeySequence("alt+d, alt+a"));
 -    activityAction->setShortcutContext(Qt::ApplicationShortcut);
 -
--    connect(d->activityConsumer, SIGNAL(currentActivityChanged(QString)), this, SLOT(currentActivityChanged(QString)));
--    connect(d->activityConsumer, SIGNAL(activityAdded(QString)), this, SLOT(activityAdded(QString)));
--    connect(d->activityConsumer, SIGNAL(activityRemoved(QString)), this, SLOT(activityRemoved(QString)));
--
-     new Osd(this);
-     d->screenConfiguration = KScreen::Config::current();
- }
+     connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)), this, SLOT(currentActivityChanged(QString)));
+     connect(m_activityConsumer, SIGNAL(activityAdded(QString)), this, SLOT(activityAdded(QString)));
+     connect(m_activityConsumer, SIGNAL(activityRemoved(QString)), this, SLOT(activityRemoved(QString)));
 -- 
 1.8.3-rc3
 
