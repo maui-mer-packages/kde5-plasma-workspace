@@ -128,7 +128,6 @@ BuildRequires:  plasma-devel
 BuildRequires:  kdewebkit-devel
 BuildRequires:  kdelibs4support-devel
 BuildRequires:  baloo-devel
-BuildRequires:  ktexteditor-devel
 BuildRequires:  libksysguard-devel
 BuildRequires:  libkscreen-devel
 BuildRequires:  kwin-devel

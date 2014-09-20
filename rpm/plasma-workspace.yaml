@@ -59,7 +59,6 @@ PkgBR:
     - kdewebkit-devel
     - kdelibs4support-devel
     - baloo-devel
-    - ktexteditor-devel
     - libksysguard-devel
     - libkscreen-devel
     - kwin-devel
