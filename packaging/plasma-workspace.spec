@@ -10,7 +10,7 @@ Name:       plasma-workspace
 # << macros
 
 Summary:    Plasma 5 workspace applications and applets
-Version:    5.0.0
+Version:    5.0.95
 Release:    1
 Group:      System/Base
 License:    GPLv2+
