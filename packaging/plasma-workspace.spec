@@ -9,12 +9,6 @@ Name:       plasma-workspace
 %bcond_with plasma-activities
 # << macros
 
-# >> bcond_with
-# << bcond_with
-
-# >> bcond_without
-# << bcond_without
-
 Summary:    Plasma 5 workspace applications and applets
 Version:    5.0.0
 Release:    1
