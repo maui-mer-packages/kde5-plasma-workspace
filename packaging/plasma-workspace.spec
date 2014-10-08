@@ -235,7 +235,7 @@ This package contains the "Breeze" theme for SDDM.
 
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%setup -q -n %{name}-%{version}
 
 # 0001-Don-t-override-default-font-configuration.patch
 %patch0 -p1

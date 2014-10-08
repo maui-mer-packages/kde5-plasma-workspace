@@ -7,7 +7,6 @@ Summary      : Plasma 5 workspace applications and applets
 Description  : |
   Plasma 5 libraries and runtime components.
 URL          : http://www.kde.org
-SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
