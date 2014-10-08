@@ -9,12 +9,6 @@ Name:       plasma-workspace
 %bcond_with plasma-activities
 # << macros
 
-# >> bcond_with
-# << bcond_with
-
-# >> bcond_without
-# << bcond_without
-
 Summary:    Plasma 5 workspace applications and applets
 Version:    5.0.0
 Release:    1
@@ -241,7 +235,7 @@ This package contains the "Breeze" theme for SDDM.
 
 
 %prep
-%setup -q -n %{name}-%{version}/upstream
+%setup -q -n %{name}-%{version}
 
 # 0001-Don-t-override-default-font-configuration.patch
 %patch0 -p1
