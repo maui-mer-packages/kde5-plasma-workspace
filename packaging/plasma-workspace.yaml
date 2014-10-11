@@ -14,7 +14,7 @@ Sources:
 
 Patches:
     - 0001-Don-t-override-default-font-configuration.patch
-    - remove-activities.patch
+    - 0002-Show-activities-action-only-when-the-service-is-runn.patch
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package

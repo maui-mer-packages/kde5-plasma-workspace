@@ -1,7 +1,6 @@
-From 648b889c70d530c40bfbf49d8660cee3c4598ead Mon Sep 17 00:00:00 2001
 From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 Date: Sun, 10 Aug 2014 08:41:50 +0000
-Subject: [PATCH] Don't override default font configuration
+Subject: Don't override default font configuration
 
 Maui already has defaults.
 ---
@@ -9,7 +8,7 @@ Maui already has defaults.
  1 file changed, 7 deletions(-)
 
 diff --git a/startkde/startkde.cmake b/startkde/startkde.cmake
-index ed3ef58..1adf541 100644
+index 91c8a3c..9d93f64 100644
 --- a/startkde/startkde.cmake
 +++ b/startkde/startkde.cmake
 @@ -97,13 +97,6 @@ cat >$kdeglobalsfile <<EOF
@@ -26,6 +25,3 @@ index ed3ef58..1adf541 100644
  EOF
  }
  
--- 
-1.8.3-rc3
-

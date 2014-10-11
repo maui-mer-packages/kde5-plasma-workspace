@@ -1,0 +1,28 @@
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Mon, 25 Aug 2014 18:54:28 +0000
+Subject: Show activities action only when the service is running
+
+Some desktops comes with no activities, that is the service is not
+started by default or it's not even installed at all hence they want to
+hide this action when the service is not running.
+---
+ shell/shellcorona.cpp | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/shell/shellcorona.cpp b/shell/shellcorona.cpp
+index ba66d46..c6b99fc 100644
+--- a/shell/shellcorona.cpp
++++ b/shell/shellcorona.cpp
+@@ -154,6 +154,12 @@ ShellCorona::ShellCorona(QObject *parent)
+     activityAction->setData(Plasma::Types::ConfigureAction);
+     activityAction->setShortcut(QKeySequence("alt+d, alt+a"));
+     activityAction->setShortcutContext(Qt::ApplicationShortcut);
++    activityAction->setVisible(m_activityConsumer->serviceStatus() == KActivities::Consumer::Running);
++    connect(m_activityConsumer, &KActivities::Consumer::serviceStatusChange,
++        [activityAction](Consumer::ServiceStatus status) {
++            activityAction->setVisible(status == KActivities::Consumer::Running);
++        }
++    );
+ 
+     connect(m_activityConsumer, SIGNAL(currentActivityChanged(QString)), this, SLOT(currentActivityChanged(QString)));
+     connect(m_activityConsumer, SIGNAL(activityAdded(QString)), this, SLOT(activityAdded(QString)));

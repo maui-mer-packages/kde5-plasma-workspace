@@ -20,7 +20,7 @@ Source1:    kde.pam
 Source100:  plasma-workspace.yaml
 Source101:  plasma-workspace-rpmlintrc
 Patch0:     0001-Don-t-override-default-font-configuration.patch
-Patch1:     remove-activities.patch
+Patch1:     0002-Show-activities-action-only-when-the-service-is-runn.patch
 Requires:   kf5-filesystem
 Requires:   kinit
 Requires:   kded
@@ -239,14 +239,9 @@ This package contains the "Breeze" theme for SDDM.
 
 # 0001-Don-t-override-default-font-configuration.patch
 %patch0 -p1
-# remove-activities.patch
+# 0002-Show-activities-action-only-when-the-service-is-runn.patch
 %patch1 -p1
 # >> setup
-%if %{with plasma-activities}
-# Revert the patch in case activities are enabled because
-# we cannot conditionally apply %patch above
-%patch1 -p1 -R
-%endif
 # << setup
 
 %build
