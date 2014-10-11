@@ -1,0 +1,414 @@
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Sat, 11 Oct 2014 19:49:38 +0000
+Subject: Rename InteractiveConsoleItem to InteractiveConsoleWindow
+
+It really is a window not an item in fact it was already referenced as
+InteractiveConsoleWindow from QML.
+---
+ components/shellprivate/CMakeLists.txt             |   2 +-
+ .../interactiveconsole/interactiveconsoleitem.cpp  | 108 ---------------------
+ .../interactiveconsole/interactiveconsoleitem.h    |  61 ------------
+ .../interactiveconsolewindow.cpp                   | 108 +++++++++++++++++++++
+ .../interactiveconsole/interactiveconsolewindow.h  |  61 ++++++++++++
+ components/shellprivate/shellprivateplugin.cpp     |   4 +-
+ 6 files changed, 172 insertions(+), 172 deletions(-)
+ delete mode 100644 components/shellprivate/interactiveconsole/interactiveconsoleitem.cpp
+ delete mode 100644 components/shellprivate/interactiveconsole/interactiveconsoleitem.h
+ create mode 100644 components/shellprivate/interactiveconsole/interactiveconsolewindow.cpp
+ create mode 100644 components/shellprivate/interactiveconsole/interactiveconsolewindow.h
+
+diff --git a/components/shellprivate/CMakeLists.txt b/components/shellprivate/CMakeLists.txt
+index da218d0..f365575 100644
+--- a/components/shellprivate/CMakeLists.txt
++++ b/components/shellprivate/CMakeLists.txt
+@@ -19,7 +19,7 @@ set(plasmashellprivateplugin_SRCS
+     widgetexplorer/openwidgetassistant.cpp
+     widgetexplorer/widgetexplorer.cpp
+     shellprivateplugin.cpp
+-    interactiveconsole/interactiveconsoleitem.cpp
++    interactiveconsole/interactiveconsolewindow.cpp
+     ${interactiveconsole_SRCS}
+ )
+ 
+diff --git a/components/shellprivate/interactiveconsole/interactiveconsoleitem.cpp b/components/shellprivate/interactiveconsole/interactiveconsoleitem.cpp
+deleted file mode 100644
+index 5284177..0000000
+--- a/components/shellprivate/interactiveconsole/interactiveconsoleitem.cpp
++++ /dev/null
+@@ -1,108 +0,0 @@
+-/*
+- *   Copyright 2009 Aaron Seigo <aseigo@kde.org>
+- *   Copyright 2014 Marco Martin <mart@kde.org>
+- *   Copyright 2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+- *
+- *   This program is free software; you can redistribute it and/or modify
+- *   it under the terms of the GNU Library General Public License as
+- *   published by the Free Software Foundation; either version 2, or
+- *   (at your option) any later version.
+- *
+- *   This program is distributed in the hope that it will be useful,
+- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *   GNU General Public License for more details
+- *
+- *   You should have received a copy of the GNU Library General Public
+- *   License along with this program; if not, write to the
+- *   Free Software Foundation, Inc.,
+- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+- */
+-
+-#include "shell/config-ktexteditor.h"
+-
+-#include "interactiveconsoleitem.h"
+-
+-InteractiveConsoleItem::InteractiveConsoleItem()
+-    : QObject(0)
+-#if HAVE_KTEXTEDITOR
+-    , m_dialog(new InteractiveConsole(0))
+-#else
+-    , m_dialog(0);
+-#endif
+-{
+-#if HAVE_KTEXTEDITOR
+-    connect(m_dialog, &InteractiveConsole::scriptEngineChanged,
+-            this, &InteractiveConsoleItem::scriptEngineChanged);
+-    connect(m_dialog, &InteractiveConsole::modeChanged,
+-            this, &InteractiveConsoleItem::modeChanged);
+-    connect(m_dialog, &InteractiveConsole::visibleChanged,
+-            this, &InteractiveConsoleItem::visibleChanged);
+-#endif
+-}
+-
+-InteractiveConsoleItem::~InteractiveConsoleItem()
+-{
+-#if HAVE_KTEXTEDITOR
+-    m_dialog->deleteLater();
+-#endif
+-}
+-
+-void InteractiveConsoleItem::setMode(const QString &mode)
+-{
+-#if HAVE_KTEXTEDITOR
+-    m_dialog->setMode(mode);
+-#endif
+-}
+-
+-QString InteractiveConsoleItem::mode() const
+-{
+-#if HAVE_KTEXTEDITOR
+-    return m_dialog->mode();
+-#else
+-    return QString();
+-#endif
+-}
+-
+-void InteractiveConsoleItem::setScriptInterface(QObject *obj)
+-{
+-#if HAVE_KTEXTEDITOR
+-    m_dialog->setScriptInterface(obj);
+-#else
+-    Q_UNUSED(obj);
+-#endif
+-}
+-
+-QObject *InteractiveConsoleItem::scriptEngine() const
+-{
+-#if HAVE_KTEXTEDITOR
+-    return m_dialog->scriptEngine();
+-#else
+-    return 0;
+-#endif
+-}
+-
+-void InteractiveConsoleItem::setVisible(bool visible) const
+-{
+-#if HAVE_KTEXTEDITOR
+-    visible ? m_dialog->show() : m_dialog->hide();
+-#endif
+-}
+-
+-bool InteractiveConsoleItem::isVisible() const
+-{
+-#if HAVE_KTEXTEDITOR
+-    return m_dialog->isVisible();
+-#else
+-    return false;
+-#endif
+-}
+-
+-void InteractiveConsoleItem::loadScript(const QString &path)
+-{
+-#if HAVE_KTEXTEDITOR
+-    m_dialog->loadScript(path);
+-#endif
+-}
+-
+-#include "interactiveconsoleitem.moc"
+diff --git a/components/shellprivate/interactiveconsole/interactiveconsoleitem.h b/components/shellprivate/interactiveconsole/interactiveconsoleitem.h
+deleted file mode 100644
+index 1fa4229..0000000
+--- a/components/shellprivate/interactiveconsole/interactiveconsoleitem.h
++++ /dev/null
+@@ -1,61 +0,0 @@
+-/*
+- *   Copyright 2009 Aaron Seigo <aseigo@kde.org>
+- *   Copyright 2014 Marco Martin <mart@kde.org>
+- *   Copyright 2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+- *
+- *   This program is free software; you can redistribute it and/or modify
+- *   it under the terms of the GNU Library General Public License as
+- *   published by the Free Software Foundation; either version 2, or
+- *   (at your option) any later version.
+- *
+- *   This program is distributed in the hope that it will be useful,
+- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+- *   GNU General Public License for more details
+- *
+- *   You should have received a copy of the GNU Library General Public
+- *   License along with this program; if not, write to the
+- *   Free Software Foundation, Inc.,
+- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+- */
+-
+-#ifndef INTERACTIVECONSOLEITEM_H
+-#define INTERACTIVECONSOLEITEM_H
+-
+-#include <QObject>
+-
+-#include "interactiveconsole.h"
+-
+-class InteractiveConsoleItem : public QObject
+-{
+-    Q_OBJECT
+-    Q_PROPERTY(QObject *scriptEngine READ scriptEngine WRITE setScriptInterface NOTIFY scriptEngineChanged)
+-    Q_PROPERTY(QString mode READ mode WRITE setMode NOTIFY modeChanged)
+-    Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged)
+-
+-public:
+-    InteractiveConsoleItem();
+-    ~InteractiveConsoleItem();
+-
+-    void setMode(const QString &mode);
+-    QString mode() const;
+-
+-    void setScriptInterface(QObject *obj);
+-    QObject *scriptEngine() const;
+-
+-    void setVisible(bool visible) const;
+-    bool isVisible() const;
+-
+-public Q_SLOTS:
+-    void loadScript(const QString &path);
+-
+-Q_SIGNALS:
+-    void scriptEngineChanged();
+-    void modeChanged();
+-    void visibleChanged(bool);
+-
+-private:
+-    InteractiveConsole *m_dialog;
+-};
+-
+-#endif // INTERACTIVECONSOLEITEM_H
+diff --git a/components/shellprivate/interactiveconsole/interactiveconsolewindow.cpp b/components/shellprivate/interactiveconsole/interactiveconsolewindow.cpp
+new file mode 100644
+index 0000000..02cf247
+--- /dev/null
++++ b/components/shellprivate/interactiveconsole/interactiveconsolewindow.cpp
+@@ -0,0 +1,108 @@
++/*
++ *   Copyright 2009 Aaron Seigo <aseigo@kde.org>
++ *   Copyright 2014 Marco Martin <mart@kde.org>
++ *   Copyright 2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
++ *
++ *   This program is free software; you can redistribute it and/or modify
++ *   it under the terms of the GNU Library General Public License as
++ *   published by the Free Software Foundation; either version 2, or
++ *   (at your option) any later version.
++ *
++ *   This program is distributed in the hope that it will be useful,
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *   GNU General Public License for more details
++ *
++ *   You should have received a copy of the GNU Library General Public
++ *   License along with this program; if not, write to the
++ *   Free Software Foundation, Inc.,
++ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
++ */
++
++#include "shell/config-ktexteditor.h"
++
++#include "interactiveconsolewindow.h"
++
++InteractiveConsoleWindow::InteractiveConsoleWindow()
++    : QObject(0)
++#if HAVE_KTEXTEDITOR
++    , m_dialog(new InteractiveConsole(0))
++#else
++    , m_dialog(0)
++#endif
++{
++#if HAVE_KTEXTEDITOR
++    connect(m_dialog, &InteractiveConsole::scriptEngineChanged,
++            this, &InteractiveConsoleWindow::scriptEngineChanged);
++    connect(m_dialog, &InteractiveConsole::modeChanged,
++            this, &InteractiveConsoleWindow::modeChanged);
++    connect(m_dialog, &InteractiveConsole::visibleChanged,
++            this, &InteractiveConsoleWindow::visibleChanged);
++#endif
++}
++
++InteractiveConsoleWindow::~InteractiveConsoleWindow()
++{
++#if HAVE_KTEXTEDITOR
++    m_dialog->deleteLater();
++#endif
++}
++
++void InteractiveConsoleWindow::setMode(const QString &mode)
++{
++#if HAVE_KTEXTEDITOR
++    m_dialog->setMode(mode);
++#endif
++}
++
++QString InteractiveConsoleWindow::mode() const
++{
++#if HAVE_KTEXTEDITOR
++    return m_dialog->mode();
++#else
++    return QString();
++#endif
++}
++
++void InteractiveConsoleWindow::setScriptInterface(QObject *obj)
++{
++#if HAVE_KTEXTEDITOR
++    m_dialog->setScriptInterface(obj);
++#else
++    Q_UNUSED(obj);
++#endif
++}
++
++QObject *InteractiveConsoleWindow::scriptEngine() const
++{
++#if HAVE_KTEXTEDITOR
++    return m_dialog->scriptEngine();
++#else
++    return 0;
++#endif
++}
++
++void InteractiveConsoleWindow::setVisible(bool visible) const
++{
++#if HAVE_KTEXTEDITOR
++    visible ? m_dialog->show() : m_dialog->hide();
++#endif
++}
++
++bool InteractiveConsoleWindow::isVisible() const
++{
++#if HAVE_KTEXTEDITOR
++    return m_dialog->isVisible();
++#else
++    return false;
++#endif
++}
++
++void InteractiveConsoleWindow::loadScript(const QString &path)
++{
++#if HAVE_KTEXTEDITOR
++    m_dialog->loadScript(path);
++#endif
++}
++
++#include "interactiveconsolewindow.moc"
+diff --git a/components/shellprivate/interactiveconsole/interactiveconsolewindow.h b/components/shellprivate/interactiveconsole/interactiveconsolewindow.h
+new file mode 100644
+index 0000000..5f646cd
+--- /dev/null
++++ b/components/shellprivate/interactiveconsole/interactiveconsolewindow.h
+@@ -0,0 +1,61 @@
++/*
++ *   Copyright 2009 Aaron Seigo <aseigo@kde.org>
++ *   Copyright 2014 Marco Martin <mart@kde.org>
++ *   Copyright 2014 Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
++ *
++ *   This program is free software; you can redistribute it and/or modify
++ *   it under the terms of the GNU Library General Public License as
++ *   published by the Free Software Foundation; either version 2, or
++ *   (at your option) any later version.
++ *
++ *   This program is distributed in the hope that it will be useful,
++ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
++ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ *   GNU General Public License for more details
++ *
++ *   You should have received a copy of the GNU Library General Public
++ *   License along with this program; if not, write to the
++ *   Free Software Foundation, Inc.,
++ *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
++ */
++
++#ifndef INTERACTIVECONSOLEWINDOW_H
++#define INTERACTIVECONSOLEWINDOW_H
++
++#include <QObject>
++
++#include "interactiveconsole.h"
++
++class InteractiveConsoleWindow : public QObject
++{
++    Q_OBJECT
++    Q_PROPERTY(QObject *scriptEngine READ scriptEngine WRITE setScriptInterface NOTIFY scriptEngineChanged)
++    Q_PROPERTY(QString mode READ mode WRITE setMode NOTIFY modeChanged)
++    Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged)
++
++public:
++    InteractiveConsoleWindow();
++    ~InteractiveConsoleWindow();
++
++    void setMode(const QString &mode);
++    QString mode() const;
++
++    void setScriptInterface(QObject *obj);
++    QObject *scriptEngine() const;
++
++    void setVisible(bool visible) const;
++    bool isVisible() const;
++
++public Q_SLOTS:
++    void loadScript(const QString &path);
++
++Q_SIGNALS:
++    void scriptEngineChanged();
++    void modeChanged();
++    void visibleChanged(bool);
++
++private:
++    InteractiveConsole *m_dialog;
++};
++
++#endif // INTERACTIVECONSOLEWINDOW_H
+diff --git a/components/shellprivate/shellprivateplugin.cpp b/components/shellprivate/shellprivateplugin.cpp
+index 8a4b9a6..87a562b 100644
+--- a/components/shellprivate/shellprivateplugin.cpp
++++ b/components/shellprivate/shellprivateplugin.cpp
+@@ -25,7 +25,7 @@
+ #include <QtQml>
+ 
+ #include "widgetexplorer/widgetexplorer.h"
+-#include "interactiveconsole/interactiveconsoleitem.h"
++#include "interactiveconsole/interactiveconsolewindow.h"
+ #include <plasma/containment.h>
+ 
+ void PlasmaShellPrivatePlugin::registerTypes(const char *uri)
+@@ -34,5 +34,5 @@ void PlasmaShellPrivatePlugin::registerTypes(const char *uri)
+ 
+     qmlRegisterType<Plasma::Containment>();
+     qmlRegisterType<WidgetExplorer>(uri, 2, 0, "WidgetExplorer");
+-    qmlRegisterType<InteractiveConsoleItem>(uri, 2, 0, "InteractiveConsoleWindow");
++    qmlRegisterType<InteractiveConsoleWindow>(uri, 2, 0, "InteractiveConsoleWindow");
+ }

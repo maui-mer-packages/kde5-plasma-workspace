@@ -15,6 +15,8 @@ Sources:
 Patches:
     - 0001-Don-t-override-default-font-configuration.patch
     - 0002-Show-activities-action-only-when-the-service-is-runn.patch
+    - 0003-Fix-interactive-console-build-when-KF5TextEditor-is-.patch
+    - 0004-Rename-InteractiveConsoleItem-to-InteractiveConsoleW.patch
 
 RpmLintIgnore:
     - devel-file-in-non-devel-package

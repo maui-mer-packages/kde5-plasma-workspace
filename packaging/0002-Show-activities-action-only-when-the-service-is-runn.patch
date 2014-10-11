@@ -10,7 +10,7 @@ hide this action when the service is not running.
  1 file changed, 6 insertions(+)
 
 diff --git a/shell/shellcorona.cpp b/shell/shellcorona.cpp
-index ba66d46..c6b99fc 100644
+index ba66d46..5b08dd4 100644
 --- a/shell/shellcorona.cpp
 +++ b/shell/shellcorona.cpp
 @@ -154,6 +154,12 @@ ShellCorona::ShellCorona(QObject *parent)
@@ -18,8 +18,8 @@ index ba66d46..c6b99fc 100644
      activityAction->setShortcut(QKeySequence("alt+d, alt+a"));
      activityAction->setShortcutContext(Qt::ApplicationShortcut);
 +    activityAction->setVisible(m_activityConsumer->serviceStatus() == KActivities::Consumer::Running);
-+    connect(m_activityConsumer, &KActivities::Consumer::serviceStatusChange,
-+        [activityAction](Consumer::ServiceStatus status) {
++    connect(m_activityConsumer, &KActivities::Consumer::serviceStatusChanged,
++        [activityAction](KActivities::Consumer::ServiceStatus status) {
 +            activityAction->setVisible(status == KActivities::Consumer::Running);
 +        }
 +    );
