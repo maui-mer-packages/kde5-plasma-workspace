@@ -118,6 +118,7 @@ BuildRequires:  knewstuff-devel
 BuildRequires:  kwallet-devel
 BuildRequires:  kcmutils-devel
 BuildRequires:  kidletime-devel
+BuildRequires:  ktexteditor-devel
 BuildRequires:  threadweaver-devel
 BuildRequires:  kdeclarative-devel
 BuildRequires:  plasma-devel

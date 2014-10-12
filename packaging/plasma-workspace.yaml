@@ -54,6 +54,7 @@ PkgBR:
     - kwallet-devel
     - kcmutils-devel
     - kidletime-devel
+    - ktexteditor-devel
     - threadweaver-devel
     - kdeclarative-devel
     - plasma-devel
