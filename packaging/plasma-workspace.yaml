@@ -196,7 +196,6 @@ SubPackages:
         that use %{name}.
       Files:
           - "%{_kf5_libdir}/libplasma-geolocation-interface.so"
-          - "%{_kf5_libdir}/libKF5XmlRpcClientPrivate.so"
           - "%{_includedir}/*"
           - "%{_kf5_cmakedir}/KRunnerAppDBusInterface"
           - "%{_kf5_cmakedir}/KSMServerDBusInterface"
