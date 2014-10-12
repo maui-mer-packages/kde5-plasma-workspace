@@ -309,15 +309,13 @@ desktop-file-install --delete-original       \
 %{_kf5_qmldir}/org/kde/*
 %exclude %{_kf5_qmldir}/org/kde/plasma/wallpapers/*
 %{_kf5_libdir}/libexec/*
-%{_kf5_sharedir}/ksmserver
-%{_kf5_sharedir}/ksplash
+%{_kf5_sharedir}/ksmserver/*
+%{_kf5_sharedir}/ksplash/*
 %{_kf5_sharedir}/plasma/services/*
 %{_kf5_sharedir}/plasma/shareprovider/*
-%{_kf5_sharedir}/solid
-%{_kf5_sharedir}/kstyle
-%{_kf5_sharedir}/drkonqi/debuggers/external/*
-%{_kf5_sharedir}/drkonqi/debuggers/internal/*
-%{_kf5_sharedir}/drkonqi/mappings
+%{_kf5_sharedir}/solid/*
+%{_kf5_sharedir}/kstyle/*
+%{_kf5_sharedir}/drkonqi/*
 %{_kf5_sharedir}/drkonqi/pics/*.png
 %{_kf5_configdir}/*.knsrc
 %{_kf5_configdir}/autostart/*.desktop
@@ -337,13 +335,10 @@ desktop-file-install --delete-original       \
 
 %files devel
 %defattr(-,root,root,-)
-%{_kf5_libdir}/libplasma-geolocation-interface.so
+%{_kf5_libdir}/*.so
+%exclude %{_kf5_libdir}/libkdeinit5_*.so
 %{_includedir}/*
-%{_kf5_cmakedir}/KRunnerAppDBusInterface
-%{_kf5_cmakedir}/KSMServerDBusInterface
-%{_kf5_cmakedir}/LibKWorkspace
-%{_kf5_cmakedir}/LibTaskManager
-%{_kf5_cmakedir}/ScreenSaverDBusInterface
+%{_kf5_cmakedir}/*
 %{_kf5_dbusinterfacesdir}/*.xml
 # >> files devel
 # << files devel
