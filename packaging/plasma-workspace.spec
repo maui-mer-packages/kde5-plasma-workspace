@@ -188,7 +188,6 @@ Color wallpaper plugins for Plasma.
 %package wallpaper-image
 Summary:    Image wallpaper plugin for Plasma
 Group:      System/GUI/Other
-BuildArch:  noarch
 Requires:   %{name} = %{version}-%{release}
 
 %description wallpaper-image

@@ -240,7 +240,6 @@ SubPackages:
           - "%{_kf5_servicesdir}/plasma-wallpaper-org.kde.color.desktop"
     - Name: wallpaper-image
       Group: System/GUI/Other
-      BuildArch: noarch
       Summary: Image wallpaper plugin for Plasma
       Description: |
         Image wallpaper plugin for Plasma.
